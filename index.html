@@ -42,7 +42,7 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            padding-bottom: 90px;
+            padding-bottom: 95px;
         }
 
         /* Profile Modal Setup */
@@ -78,11 +78,6 @@
             width: 100%; padding: 12px; border: 1px solid #CCC; border-radius: 8px; font-size: 15px; outline: none;
         }
         .input-group input:focus { border-color: var(--primary-gold); }
-
-        .save-btn {
-            width: 100%; padding: 12px; background: var(--text-dark); color: white;
-            border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer;
-        }
 
         /* Header Style with Full Arabic Text */
         .app-header {
@@ -126,7 +121,7 @@
             line-height: 1.4;
         }
 
-        .welcome-msg { font-size: 18px; font-weight: bold; margin-bottom: 8px; }
+        .welcome-msg { font-size: 18px; font-weight: bold; margin-bottom: 8px; letter-spacing: 0.5px; }
 
         .child-info {
             font-size: 13px; color: #BDC3C7;
@@ -180,52 +175,75 @@
         .quote-card h4 { color: var(--primary-gold); font-size: 15px; margin-bottom: 5px; }
         .quote-card p { font-size: 14px; font-style: italic; color: #555; }
 
-        /* ATAVA Full Branding Footer & Service Billboard */
+        /* ATAVA Full Branding Billboard with Creator Tag */
         .branding-billboard {
             background: #1A252F;
             color: white;
             border-radius: 15px;
             margin-top: 25px;
-            padding: 20px 15px;
+            padding: 22px 15px;
             text-align: center;
             box-shadow: 0 6px 15px rgba(0,0,0,0.08);
         }
-        .branding-billboard img {
-            width: 65px;
-            height: 65px;
+        
+        .logo-container {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 10px auto;
             border-radius: 50%;
             border: 2px solid var(--primary-gold);
-            margin-bottom: 8px;
+            background: #2C3E50;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+        .branding-billboard img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
         .branding-billboard h3 {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--primary-gold);
             letter-spacing: 0.5px;
             margin-bottom: 12px;
+            font-weight: 700;
         }
         .service-tags {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         .tag {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             padding: 4px 10px;
             border-radius: 12px;
             font-size: 11px;
             color: #E0E0E0;
         }
-        .contact-line {
-            font-size: 12px;
-            color: #BDC3C7;
+        
+        /* Creator Section */
+        .creator-section {
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
+            padding-top: 12px;
+            margin-top: 5px;
+        }
+        .creator-title {
+            font-size: 10px;
+            color: #95A5A6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+        .creator-name {
+            font-size: 13px;
+            color: var(--primary-gold);
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         /* Navigation */
@@ -247,7 +265,7 @@
         <div class="profile-card">
             <h2>കുട്ടിയുടെ പ്രൊഫൈൽ സെറ്റ് ചെയ്യുക ✨</h2>
             <div class="input-group"><label>കുട്ടിയുടെ പേര്</label><input type="text" id="input-name" placeholder="പേര് ടൈപ്പ് ചെയ്യുക"></div>
-            <div class="input-group"><label>ക്ലാസ്സ്</label><input type="text" id="input-class" placeholder="ഉദാ: Class 5"></div>
+            <div class="input-group"><label>ക്ലാസ്സ് (ഉദാ: 10, 5, 4)</label><input type="text" id="input-class" placeholder="ഉദാ: 10"></div>
             <div class="input-group"><label>മദ്രസയുടെ പേര്</label><input type="text" id="input-madrassa" placeholder="മദ്രസയുടെ പേര്"></div>
             <div class="input-group"><label>സ്ഥലം</label><input type="text" id="input-place" placeholder="സ്ഥലം"></div>
             <button class="save-btn" onclick="saveProfile()">തുടങ്ങാം 🚀</button>
@@ -271,6 +289,7 @@
             <h2 class="section-title"><i class="fa-solid fa-circle-check"></i> എന്റെ ഇന്നത്തെ ശീലങ്ങൾ</h2>
             
             <div class="task-list">
+                <!-- Task 1 -->
                 <div class="task-item">
                     <div class="task-info">
                         <div class="task-icon"><i class="fa-solid fa-mosque"></i></div>
@@ -284,6 +303,21 @@
                     </div>
                 </div>
 
+                <!-- Task 2 -->
+                <div class="task-item">
+                    <div class="task-info">
+                        <div class="task-icon"><i class="fa-solid fa-star-and-crescent" style="color: var(--primary-gold);"></i></div>
+                        <div class="task-name">നബി ﷺ യുടെ മേൽ സ്വലാത്ത് ചൊല്ലുക</div>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <label>
+                            <input type="checkbox" class="task-checkbox" id="swalath" onchange="triggerCelebrate(this)">
+                            <div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Task 3 -->
                 <div class="task-item">
                     <div class="task-info">
                         <div class="task-icon"><i class="fa-solid fa-book-quran"></i></div>
@@ -297,6 +331,7 @@
                     </div>
                 </div>
 
+                <!-- Task 4 -->
                 <div class="task-item">
                     <div class="task-info">
                         <div class="task-icon"><i class="fa-solid fa-user-graduate"></i></div>
@@ -310,6 +345,21 @@
                     </div>
                 </div>
 
+                <!-- Task 5 -->
+                <div class="task-item">
+                    <div class="task-info">
+                        <div class="task-icon"><i class="fa-solid fa-heart-open" style="color: #E74C3C;"></i></div>
+                        <div class="task-name">മറ്റുള്ളവരെ സഹായിക്കൽ</div>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <label>
+                            <input type="checkbox" class="task-checkbox" id="helping_others" onchange="triggerCelebrate(this)">
+                            <div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Task 6 -->
                 <div class="task-item">
                     <div class="task-info">
                         <div class="task-icon"><i class="fa-solid fa-heart"></i></div>
@@ -327,21 +377,26 @@
             <!-- Daily Quote Card -->
             <div class="quote-card">
                 <h4>💡 ഇന്നത്തെ വചനം</h4>
-                <p>"വിദ്യ നേടുക എന്നത് ഓരോ മുസ്ലിമിന്റെയും നിർബന്ധ കടമയാകുന്നു."</p>
+                <p>"വിദ്യ നേടുക എന്നത് ഓരോ മുസ്лиമിന്റെയും നിർബന്ധ കടമയാകുന്നു."</p>
             </div>
 
-            <!-- ATAVA Full Branding & Services Billboard (Filled Space beautifully) -->
+            <!-- ATAVA Premium Business Billboard & Creator Info -->
             <div class="branding-billboard">
-                <img src="logo.jpg" alt="ATAVA Logo" onerror="this.style.display='none';">
+                <div class="logo-container">
+                    <img src="logo.jpg" alt="ATAVA Logo" onerror="this.src='https://placehold.co/100x100/2c3e50/d4af37?text=ATAVA';">
+                </div>
                 <h3>ATAVA DIGITAL SERVICES & TRADING</h3>
                 <div class="service-tags">
                     <span class="tag">Data Entry</span>
                     <span class="tag">Typing Works</span>
                     <span class="tag">Poster & Badge Design</span>
-                    <span class="tag">Digital Services</span>
+                    <span class="tag">Digital Portals</span>
                 </div>
-                <div class="contact-line">
-                    <i class="fa-solid fa-shield-halved" style="color:var(--primary-gold)"></i> Powered by ATAVA Digital
+                
+                <!-- Creator Branding Tag -->
+                <div class="creator-section">
+                    <p class="creator-title">Designed & Developed By</p>
+                    <p class="creator-name">ABDUL SALAM AHSANI VAZHAKKAD</p>
                 </div>
             </div>
         </main>
@@ -354,7 +409,6 @@
     </div>
 
     <script>
-        // കറന്റ് പ്രൊഫൈലിന്റെ പേര് വെച്ച് ടാസ്ക് കീ വേർതിരിക്കാൻ
         let currentChildPrefix = "default_";
 
         function showModal() { 
@@ -364,21 +418,29 @@
         function triggerCelebrate(element) {
             if(element.checked) {
                 confetti({
-                    particleCount: 120,
-                    spread: 70,
+                    particleCount: 140,
+                    spread: 80,
                     origin: { y: 0.85 },
-                    colors: ['#D4AF37', '#2ECC71', '#3498DB', '#E74C3C']
+                    colors: ['#D4AF37', '#2ECC71', '#3498DB', '#E74C3C', '#9B59B6']
                 });
             }
         }
 
         function saveProfile() {
-            const name = document.getElementById('input-name').value.trim();
-            const uClass = document.getElementById('input-class').value.trim();
+            let name = document.getElementById('input-name').value.trim();
+            let uClass = document.getElementById('input-class').value.trim();
             const madrassa = document.getElementById('input-madrassa').value.trim();
             const place = document.getElementById('input-place').value.trim();
 
             if(name === "") { alert("ദയവായി പേര് ടൈപ്പ് ചെയ്യുക!"); return; }
+
+            // 🌟 പേരുകൾ എപ്പോഴും CAPITAL LETTERS ആക്കി മാറ്റുന്നു
+            name = name.toUpperCase();
+            
+            // 🌟 ക്ലാസ്സ് വെറും 10 ആണെങ്കിൽ അത് "Class 10" രൂപത്തിലാക്കുന്നു
+            if(uClass !== "" && !uClass.toLowerCase().includes('class')) {
+                uClass = "Class " + uClass;
+            }
 
             localStorage.setItem('child_name', name);
             localStorage.setItem('child_class', uClass);
@@ -409,7 +471,6 @@
                     document.getElementById('header-madrassa-info').style.display = 'none';
                 }
                 
-                // പുതിയ കുട്ടി ലോഗിൻ ചെയ്യുമ്പോൾ പഴയ കുട്ടിയുടെ ചെക്ക്ബോക്സ് മാറാൻ ലോഡ് ചെയ്യുക
                 loadCheckboxes();
             }
         }
@@ -422,7 +483,6 @@
             });
         }
 
-        // ചെക്ക്ബോക്സ് ഇവന്റ് ലിസണറുകൾ ഓരോ കുട്ടിക്കും പ്രത്യേകം സേവ് ചെയ്യാൻ
         const checkboxes = document.querySelectorAll('.task-checkbox');
         checkboxes.forEach(checkbox => {
             checkbox.addEventListener('change', () => { 
