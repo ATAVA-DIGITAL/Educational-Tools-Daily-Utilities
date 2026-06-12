@@ -16,6 +16,7 @@
             --text-dark: #2C3E50;
             --text-muted: #7F8C8D;
             --success-green: #2ECC71;
+            --premium-green: #0A5C36;
         }
 
         * {
@@ -49,353 +50,277 @@
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.7);
             display: none;
             justify-content: center;
             align-items: center;
             z-index: 1000;
             padding: 20px;
+            backdrop-filter: blur(5px);
         }
 
         .profile-card {
             background: white;
             width: 100%;
             max-width: 400px;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
 
         .profile-card h2 {
-            margin-bottom: 15px;
-            font-size: 20px;
+            margin-bottom: 20px;
+            font-size: 22px;
             text-align: center;
+            color: var(--premium-green);
         }
 
-        .input-group { margin-bottom: 15px; }
-        .input-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+        .input-group { margin-bottom: 18px; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; color: #555; }
         .input-group input {
-            width: 100%; padding: 12px; border: 1px solid #CCC; border-radius: 8px; font-size: 15px; outline: none;
+            width: 100%; padding: 14px; border: 2px solid #EEE; border-radius: 12px; font-size: 15px; outline: none; transition: 0.3s;
         }
         .input-group input:focus { border-color: var(--primary-gold); }
 
-        /* Header Style with Full Arabic Text */
+        .save-btn {
+            width: 100%; padding: 15px; background: var(--premium-green); color: white; border: none; border-radius: 12px;
+            font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s;
+        }
+
+        /* Header Style */
         .app-header {
-            background: linear-gradient(135deg, #1A252F, #2C3E50);
+            background: linear-gradient(135deg, #0A5C36, #148A4E);
             color: white;
-            padding: 35px 20px;
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
+            padding: 40px 20px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
             position: relative;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .header-actions {
             position: absolute;
             top: 15px;
             right: 15px;
-            display: flex;
-            gap: 12px;
         }
 
         .action-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--primary-gold);
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
             border: none;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 11px;
-            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
 
         .arabic-salam {
             font-family: 'Amiri', serif;
-            font-size: 24px;
+            font-size: 26px;
             color: var(--primary-gold);
-            margin-top: 15px;
-            margin-bottom: 8px;
-            line-height: 1.4;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
-        .welcome-msg { font-size: 18px; font-weight: bold; margin-bottom: 8px; letter-spacing: 0.5px; }
+        .welcome-msg { font-size: 20px; font-weight: bold; }
 
         .child-info {
-            font-size: 13px; color: #BDC3C7;
-            background: rgba(255,255,255,0.1);
-            padding: 5px 12px; border-radius: 20px;
+            font-size: 13px; color: #E0F2F1;
+            background: rgba(255,255,255,0.15);
+            padding: 6px 15px; border-radius: 20px;
+            margin-top: 10px;
             display: inline-block;
         }
 
         .content { padding: 20px; flex: 1; }
 
         .section-title {
-            font-size: 18px; margin: 15px 0 15px 0; font-weight: 700;
+            font-size: 18px; margin: 20px 0; font-weight: 700;
             display: flex; align-items: center; gap: 10px;
         }
-        .section-title i { color: var(--primary-gold); }
+        .section-title i { color: var(--premium-green); }
 
         /* Task Items */
-        .task-list { display: flex; flex-direction: column; gap: 12px; }
+        .task-list { display: flex; flex-direction: column; gap: 15px; }
         .task-item {
-            background-color: var(--card-white); padding: 15px;
-            border-radius: 12px; display: flex; align-items: center;
-            justify-content: space-between; box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            background-color: var(--card-white); padding: 18px;
+            border-radius: 15px; display: flex; align-items: center;
+            justify-content: space-between; box-shadow: 0 4px 12px rgba(0,0,0,0.04);
         }
         .task-info { display: flex; align-items: center; gap: 15px; }
         .task-icon {
-            width: 40px; height: 40px; background-color: rgba(212, 175, 55, 0.1);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: var(--primary-gold); font-size: 18px;
+            width: 45px; height: 45px; background-color: rgba(10, 92, 54, 0.1);
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            color: var(--premium-green); font-size: 20px;
         }
         .task-name { font-weight: 700; font-size: 16px; }
+
+        /* Swalath Icon Special Animation */
+        .swalath-icon {
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
 
         /* Checkbox Customization */
         .checkbox-wrapper input[type="checkbox"] { display: none; }
         .checkbox-wrapper .custom-checkbox {
-            width: 28px; height: 28px; border: 2px solid #BDC3C7;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;
+            width: 32px; height: 32px; border: 2px solid #DDD;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s;
         }
-        .checkbox-wrapper .custom-checkbox i { color: white; font-size: 12px; display: none; }
         .checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox {
             background-color: var(--success-green); border-color: var(--success-green);
         }
+        .checkbox-wrapper .custom-checkbox i { color: white; font-size: 14px; display: none; }
         .checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox i { display: block; }
 
-        /* Daily Quote Card */
-        .quote-card {
-            background: #FFFDEE;
-            border: 1px dashed var(--primary-gold);
-            padding: 15px; border-radius: 12px; margin-top: 25px;
-            text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.01);
-        }
-        .quote-card h4 { color: var(--primary-gold); font-size: 15px; margin-bottom: 5px; }
-        .quote-card p { font-size: 14px; font-style: italic; color: #555; }
-
-        /* ATAVA Full Branding Billboard with Creator Tag */
+        /* ATAVA Branding Billboard - No Logo Version */
         .branding-billboard {
-            background: #1A252F;
+            background: linear-gradient(135deg, #0A5C36, #148A4E);
             color: white;
-            border-radius: 15px;
-            margin-top: 25px;
-            padding: 22px 15px;
+            border-radius: 20px;
+            margin-top: 30px;
+            padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
         
-        .logo-container {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 10px auto;
-            border-radius: 50%;
-            border: 2px solid var(--primary-gold);
-            background: #2C3E50;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .branding-billboard img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .branding-billboard h3 {
-            font-size: 13px;
+        .brand-icon-top {
+            font-size: 24px;
             color: var(--primary-gold);
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+        }
+
+        .branding-billboard h3 {
+            font-size: 16px;
+            color: var(--primary-gold);
+            letter-spacing: 1px;
+            margin-bottom: 15px;
             font-weight: 700;
         }
         .service-tags {
             display: flex;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             flex-wrap: wrap;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         .tag {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 4px 10px;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 5px 12px;
+            border-radius: 15px;
             font-size: 11px;
-            color: #E0E0E0;
+            color: #FFF;
         }
         
-        /* Creator Section */
         .creator-section {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 12px;
-            margin-top: 5px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 15px;
         }
-        .creator-title {
-            font-size: 10px;
-            color: #95A5A6;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 2px;
-        }
-        .creator-name {
-            font-size: 13px;
-            color: var(--primary-gold);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
+        .creator-title { font-size: 10px; color: #A3E2C9; text-transform: uppercase; letter-spacing: 1px; }
+        .creator-name { font-size: 14px; color: white; font-weight: 700; margin-top: 4px; }
 
         /* Navigation */
         .bottom-nav {
             position: fixed; bottom: 0; width: 100%; max-width: 480px;
-            background-color: var(--card-white); height: 70px;
+            background-color: white; height: 75px;
             display: flex; justify-content: space-around; align-items: center;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-top-right-radius: 20px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.05); border-top-left-radius: 25px; border-top-right-radius: 25px;
         }
-        .nav-item { display: flex; flex-direction: column; align-items: center; color: var(--text-muted); font-size: 12px; font-weight: bold; gap: 4px; }
-        .nav-item i { font-size: 20px; }
-        .nav-item.active { color: var(--primary-gold); }
+        .nav-item { display: flex; flex-direction: column; align-items: center; color: var(--text-muted); font-size: 12px; font-weight: bold; gap: 5px; }
+        .nav-item i { font-size: 22px; }
+        .nav-item.active { color: var(--premium-green); }
     </style>
 </head>
 <body>
 
-    <!-- Popup Form -->
     <div class="modal-overlay" id="profile-modal">
         <div class="profile-card">
-            <h2>കുട്ടിയുടെ പ്രൊഫൈൽ സെറ്റ് ചെയ്യുക ✨</h2>
+            <h2>പ്രൊഫൈൽ സെറ്റ് ചെയ്യുക ✨</h2>
             <div class="input-group"><label>കുട്ടിയുടെ പേര്</label><input type="text" id="input-name" placeholder="പേര് ടൈപ്പ് ചെയ്യുക"></div>
-            <div class="input-group"><label>ക്ലാസ്സ് (ഉദാ: 10, 5, 4)</label><input type="text" id="input-class" placeholder="ഉദാ: 10"></div>
+            <div class="input-group"><label>ക്ലാസ്സ്</label><input type="text" id="input-class" placeholder="ഉദാ: 5"></div>
             <div class="input-group"><label>മദ്രസയുടെ പേര്</label><input type="text" id="input-madrassa" placeholder="മദ്രസയുടെ പേര്"></div>
             <div class="input-group"><label>സ്ഥലം</label><input type="text" id="input-place" placeholder="സ്ഥലം"></div>
-            <button class="save-btn" onclick="saveProfile()">തുടങ്ങാം 🚀</button>
+            <button class="save-btn" onclick="saveProfile()">സേവ് ചെയ്യാം 🚀</button>
         </div>
     </div>
 
     <div class="app-container">
-        
-        <!-- App Header with Switch Profile Actions -->
         <header class="app-header">
             <div class="header-actions">
-                <button class="action-btn" onclick="showModal()"><i class="fa-solid fa-users-gear"></i> കുട്ടിയെ മാറ്റുക</button>
+                <button class="action-btn" onclick="showModal()"><i class="fa-solid fa-user-pen"></i> മാറ്റുക</button>
             </div>
-            <div class="arabic-salam">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ</div>
+            <div class="arabic-salam">السَّلَامُ عَلَيْكُمْ</div>
             <h1 id="welcome-text" class="welcome-msg">ഹലോ, കൂട്ടുകാരാ 👋</h1>
             <div id="header-madrassa-info" class="child-info" style="display:none;"></div>
         </header>
 
         <main class="content">
-            <!-- Tasks Area -->
-            <h2 class="section-title"><i class="fa-solid fa-circle-check"></i> എന്റെ ഇന്നത്തെ ശീലങ്ങൾ</h2>
+            <h2 class="section-title"><i class="fa-solid fa-calendar-check"></i> ഇന്നത്തെ ശീലങ്ങൾ</h2>
             
             <div class="task-list">
-                <!-- Task 1 -->
                 <div class="task-item">
                     <div class="task-info">
                         <div class="task-icon"><i class="fa-solid fa-mosque"></i></div>
                         <div class="task-name">ഫർള് നിസ്കാരങ്ങൾ</div>
                     </div>
                     <div class="checkbox-wrapper">
-                        <label>
-                            <input type="checkbox" class="task-checkbox" id="prayer" onchange="triggerCelebrate(this)">
-                            <div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>
-                        </label>
+                        <label><input type="checkbox" class="task-checkbox" id="prayer" onchange="triggerCelebrate(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label>
                     </div>
                 </div>
 
-                <!-- Task 2 -->
                 <div class="task-item">
                     <div class="task-info">
-                        <div class="task-icon"><i class="fa-solid fa-star-and-crescent" style="color: var(--primary-gold);"></i></div>
-                        <div class="task-name">നബി ﷺ യുടെ മേൽ സ്വലാത്ത് ചൊല്ലുക</div>
+                        <div class="task-icon"><i class="fa-solid fa-sun swalath-icon"></i></div>
+                        <div class="task-name">സ്വലാത്ത് ചൊല്ലുക</div>
                     </div>
                     <div class="checkbox-wrapper">
-                        <label>
-                            <input type="checkbox" class="task-checkbox" id="swalath" onchange="triggerCelebrate(this)">
-                            <div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>
-                        </label>
+                        <label><input type="checkbox" class="task-checkbox" id="swalath" onchange="triggerCelebrate(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label>
                     </div>
                 </div>
 
-                <!-- Task 3 -->
                 <div class="task-item">
                     <div class="task-info">
                         <div class="task-icon"><i class="fa-solid fa-book-quran"></i></div>
                         <div class="task-name">ഖുർആൻ പാരായണം</div>
                     </div>
                     <div class="checkbox-wrapper">
-                        <label>
-                            <input type="checkbox" class="task-checkbox" id="quran" onchange="triggerCelebrate(this)">
-                            <div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>
-                        </label>
+                        <label><input type="checkbox" class="task-checkbox" id="quran" onchange="triggerCelebrate(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label>
                     </div>
                 </div>
 
-                <!-- Task 4 -->
                 <div class="task-item">
                     <div class="task-info">
-                        <div class="task-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                        <div class="task-icon"><i class="fa-solid fa-pencil"></i></div>
                         <div class="task-name">മദ്രസ ഹോംവർക്കുകൾ</div>
                     </div>
                     <div class="checkbox-wrapper">
-                        <label>
-                            <input type="checkbox" class="task-checkbox" id="homework" onchange="triggerCelebrate(this)">
-                            <div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Task 5 -->
-                <div class="task-item">
-                    <div class="task-info">
-                        <div class="task-icon"><i class="fa-solid fa-heart-open" style="color: #E74C3C;"></i></div>
-                        <div class="task-name">മറ്റുള്ളവരെ സഹായിക്കൽ</div>
-                    </div>
-                    <div class="checkbox-wrapper">
-                        <label>
-                            <input type="checkbox" class="task-checkbox" id="helping_others" onchange="triggerCelebrate(this)">
-                            <div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Task 6 -->
-                <div class="task-item">
-                    <div class="task-info">
-                        <div class="task-icon"><i class="fa-solid fa-heart"></i></div>
-                        <div class="task-name">മാതാപിതാക്കളെ സഹായിക്കൽ</div>
-                    </div>
-                    <div class="checkbox-wrapper">
-                        <label>
-                            <input type="checkbox" class="task-checkbox" id="parents" onchange="triggerCelebrate(this)">
-                            <div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>
-                        </label>
+                        <label><input type="checkbox" class="task-checkbox" id="homework" onchange="triggerCelebrate(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label>
                     </div>
                 </div>
             </div>
 
-            <!-- Daily Quote Card -->
-            <div class="quote-card">
-                <h4>💡 ഇന്നത്തെ വചനം</h4>
-                <p>"വിദ്യ നേടുക എന്നത് ഓരോ മുസ്лиമിന്റെയും നിർബന്ധ കടമയാകുന്നു."</p>
-            </div>
-
-            <!-- ATAVA Premium Business Billboard & Creator Info -->
             <div class="branding-billboard">
-                <div class="logo-container">
-                    <img src="logo.jpg" alt="ATAVA Logo" onerror="this.src='https://placehold.co/100x100/2c3e50/d4af37?text=ATAVA';">
-                </div>
+                <div class="brand-icon-top"><i class="fa-solid fa-briefcase"></i></div>
                 <h3>ATAVA DIGITAL SERVICES & TRADING</h3>
                 <div class="service-tags">
                     <span class="tag">Data Entry</span>
-                    <span class="tag">Typing Works</span>
-                    <span class="tag">Poster & Badge Design</span>
-                    <span class="tag">Digital Portals</span>
+                    <span class="tag">Design</span>
+                    <span class="tag">Digital Portal</span>
                 </div>
-                
-                <!-- Creator Branding Tag -->
                 <div class="creator-section">
-                    <p class="creator-title">Designed & Developed By</p>
+                    <p class="creator-title">Designed By</p>
                     <p class="creator-name">ABDUL SALAM AHSANI VAZHAKKAD</p>
                 </div>
             </div>
@@ -404,24 +329,20 @@
         <nav class="bottom-nav">
             <div class="nav-item active"><i class="fa-solid fa-house"></i><span>ഹോം</span></div>
             <div class="nav-item"><i class="fa-solid fa-book-open"></i><span>പഠനം</span></div>
-            <div class="nav-item"><i class="fa-solid fa-gamepad"></i><span>കളിക്കാം</span></div>
+            <div class="nav-item"><i class="fa-solid fa-gamepad"></i><span>ഗെയിംസ്</span></div>
         </nav>
     </div>
 
     <script>
         let currentChildPrefix = "default_";
 
-        function showModal() { 
-            document.getElementById('profile-modal').style.display = 'flex'; 
-        }
+        function showModal() { document.getElementById('profile-modal').style.display = 'flex'; }
 
         function triggerCelebrate(element) {
             if(element.checked) {
                 confetti({
-                    particleCount: 140,
-                    spread: 80,
-                    origin: { y: 0.85 },
-                    colors: ['#D4AF37', '#2ECC71', '#3498DB', '#E74C3C', '#9B59B6']
+                    particleCount: 150, spread: 70, origin: { y: 0.8 },
+                    colors: ['#D4AF37', '#2ECC71', '#0A5C36']
                 });
             }
         }
@@ -432,15 +353,9 @@
             const madrassa = document.getElementById('input-madrassa').value.trim();
             const place = document.getElementById('input-place').value.trim();
 
-            if(name === "") { alert("ദയവായി പേര് ടൈപ്പ് ചെയ്യുക!"); return; }
-
-            // 🌟 പേരുകൾ എപ്പോഴും CAPITAL LETTERS ആക്കി മാറ്റുന്നു
+            if(name === "") { alert("പേര് നൽകുക"); return; }
             name = name.toUpperCase();
-            
-            // 🌟 ക്ലാസ്സ് വെറും 10 ആണെങ്കിൽ അത് "Class 10" രൂപത്തിലാക്കുന്നു
-            if(uClass !== "" && !uClass.toLowerCase().includes('class')) {
-                uClass = "Class " + uClass;
-            }
+            if(uClass !== "" && !uClass.toLowerCase().includes('class')) uClass = "Class " + uClass;
 
             localStorage.setItem('child_name', name);
             localStorage.setItem('child_class', uClass);
@@ -457,20 +372,15 @@
             const madrassa = localStorage.getItem('child_madrassa');
             const place = localStorage.getItem('child_place');
 
-            if (!name) { 
-                showModal(); 
-            } else {
+            if (!name) { showModal(); } 
+            else {
                 currentChildPrefix = name.toLowerCase().replace(/\s+/g, '') + "_";
                 document.getElementById('welcome-text').innerText = `ഹലോ, ${name} ${uClass ? '('+uClass+')' : ''} 👋`;
-                
+                const infoBox = document.getElementById('header-madrassa-info');
                 if(madrassa || place) {
-                    const infoBox = document.getElementById('header-madrassa-info');
                     infoBox.style.display = 'inline-block';
                     infoBox.innerText = `${madrassa} ${place ? '• ' + place : ''}`;
-                } else {
-                    document.getElementById('header-madrassa-info').style.display = 'none';
-                }
-                
+                } else { infoBox.style.display = 'none'; }
                 loadCheckboxes();
             }
         }
@@ -483,8 +393,7 @@
             });
         }
 
-        const checkboxes = document.querySelectorAll('.task-checkbox');
-        checkboxes.forEach(checkbox => {
+        document.querySelectorAll('.task-checkbox').forEach(checkbox => {
             checkbox.addEventListener('change', () => { 
                 localStorage.setItem(currentChildPrefix + checkbox.id, checkbox.checked); 
             });
