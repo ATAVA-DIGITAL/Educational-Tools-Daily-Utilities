@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>മദ്രസ മാസ്റ്റർ - Madrassa App</title>
-    <!-- Google Fonts for professional look -->
     <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -35,19 +33,84 @@
             min-height: 100vh;
         }
 
-        /* Mobile Screen Container */
         .app-container {
             width: 100%;
-            max-width: 480px; /* Perfect for Mobile & Tab view */
+            max-width: 480px;
             background-color: var(--bg-light);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             position: relative;
-            padding-bottom: 80px; /* Space for bottom nav */
+            padding-bottom: 80px;
         }
 
-        /* Header Style */
+        /* Profile Modal Setup */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: white;
+            width: 100%;
+            max-width: 400px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .profile-card h2 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #CCC;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary-gold);
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--text-dark);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         .app-header {
             background: linear-gradient(135deg, #1A252F, #2C3E50);
             color: white;
@@ -55,25 +118,38 @@
             border-bottom-left-radius: 25px;
             border-bottom-right-radius: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .edit-profile-icon {
+            position: absolute;
+            top: 25px;
+            right: 20px;
+            color: var(--primary-gold);
+            cursor: pointer;
+            font-size: 18px;
         }
 
         .app-header h1 {
-            font-size: 24px;
+            font-size: 22px;
             margin-bottom: 5px;
         }
 
-        .app-header p {
-            font-size: 14px;
+        .child-info {
+            font-size: 13px;
             color: #BDC3C7;
+            margin-top: 5px;
+            background: rgba(255,255,255,0.1);
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
         }
 
-        /* Main Content Area */
         .content {
             padding: 20px;
             flex: 1;
         }
 
-        /* Quick Info / Prayer Time Card */
         .info-card {
             background-color: var(--card-white);
             border-radius: 15px;
@@ -86,12 +162,6 @@
             align-items: center;
         }
 
-        .info-card h3 {
-            font-size: 16px;
-            color: var(--text-dark);
-        }
-
-        /* Task Tracker Section */
         .section-title {
             font-size: 18px;
             margin-bottom: 15px;
@@ -119,11 +189,6 @@
             align-items: center;
             justify-content: space-between;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            transition: transform 0.2s;
-        }
-
-        .task-item:active {
-            transform: scale(0.98);
         }
 
         .task-info {
@@ -149,7 +214,6 @@
             font-size: 16px;
         }
 
-        /* Custom Modern Checkbox */
         .checkbox-wrapper input[type="checkbox"] {
             display: none;
         }
@@ -163,7 +227,6 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.2s;
         }
 
         .checkbox-wrapper .custom-checkbox i {
@@ -181,7 +244,6 @@
             display: block;
         }
 
-        /* Bottom Navigation Bar */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -195,7 +257,6 @@
             box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
-            z-index: 100;
         }
 
         .nav-item {
@@ -207,8 +268,6 @@
             font-size: 12px;
             font-weight: bold;
             gap: 4px;
-            transition: color 0.2s;
-            cursor: pointer;
         }
 
         .nav-item i {
@@ -222,32 +281,53 @@
 </head>
 <body>
 
+    <!-- Profile Data Input Popup -->
+    <div class="modal-overlay" id="profile-modal">
+        <div class="profile-card">
+            <h2>നിങ്ങളുടെ പ്രൊഫൈൽ സെറ്റ് ചെയ്യുക</h2>
+            <div class="input-group">
+                <label>കുട്ടിയുടെ പേര്</label>
+                <input type="text" id="input-name" placeholder="പേര് ടൈപ്പ് ചെയ്യുക">
+            </div>
+            <div class="input-group">
+                <label>ക്ലാസ്സ്</label>
+                <input type="text" id="input-class" placeholder="ഉദാ: Class 5">
+            </div>
+            <div class="input-group">
+                <label>മദ്രസയുടെ പേര്</label>
+                <input type="text" id="input-madrassa" placeholder="മദ്രസയുടെ പേര്">
+            </div>
+            <div class="input-group">
+                <label>സ്ഥലം</label>
+                <input type="text" id="input-place" placeholder="സ്ഥലം">
+            </div>
+            <button class="save-btn" onclick="saveProfile()">സേവ് ചെയ്യുക</button>
+        </div>
+    </div>
+
     <div class="app-container">
         
         <!-- App Header -->
         <header class="app-header">
-            <h1>അസ്സലാമു അലൈക്കും 👋</h1>
-            <p>ഇന്ന് മദ്രസയിൽ പോയിരുന്നോ? നല്ല ശീലങ്ങൾ ഇതാ ഇവിടെ ട്രാക്ക് ചെയ്യാം.</p>
+            <div class="edit-profile-icon" onclick="showModal()"><i class="fa-solid fa-user-gear"></i></div>
+            <h1 id="welcome-text">അസ്സലാമു അലൈക്കും 👋</h1>
+            <div id="header-madrassa-info" class="child-info" style="display:none;"></div>
         </header>
 
         <!-- Main Content -->
         <main class="content">
             
-            <!-- Quick Info Card -->
             <div class="info-card">
                 <div>
-                    <h3>ഇന്നത്തെ തീയതി</h3>
-                    <p style="color: var(--text-muted); font-size: 14px;" id="current-date">ലോഡ് ചെയ്യുന്നു...</p>
+                    <h3 style="font-size: 15px;">ഇന്നത്തെ തീയതി</h3>
+                    <p style="color: var(--text-muted); font-size: 14px;" id="current-date"></p>
                 </div>
                 <i class="fa-regular fa-calendar-days" style="font-size: 24px; color: var(--primary-gold);"></i>
             </div>
 
-            <!-- Daily Tracker Section -->
             <h2 class="section-title"><i class="fa-solid fa-star"></i> എന്റെ ഇന്നത്തെ ദിവസം</h2>
             
             <div class="task-list">
-                
-                <!-- Task 1 -->
                 <div class="task-item">
                     <div class="task-info">
                         <div class="task-icon"><i class="fa-solid fa-mosque"></i></div>
@@ -261,7 +341,6 @@
                     </div>
                 </div>
 
-                <!-- Task 2 -->
                 <div class="task-item">
                     <div class="task-info">
                         <div class="task-icon"><i class="fa-solid fa-book-quran"></i></div>
@@ -275,7 +354,6 @@
                     </div>
                 </div>
 
-                <!-- Task 3 -->
                 <div class="task-item">
                     <div class="task-info">
                         <div class="task-icon"><i class="fa-solid fa-user-graduate"></i></div>
@@ -289,7 +367,6 @@
                     </div>
                 </div>
 
-                <!-- Task 4 -->
                 <div class="task-item">
                     <div class="task-info">
                         <div class="task-icon"><i class="fa-solid fa-heart"></i></div>
@@ -302,49 +379,87 @@
                         </label>
                     </div>
                 </div>
-
             </div>
-
         </main>
 
-        <!-- Bottom App-like Navigation Bar -->
         <nav class="bottom-nav">
             <div class="nav-item active">
                 <i class="fa-solid fa-house"></i>
                 <span>ഹോം</span>
             </div>
-            <div class="nav-item" onclick="alert('പഠനം സെക്ഷൻ അടുത്ത അപ്ഡേറ്റിൽ വരുന്നു!')">
+            <div class="nav-item">
                 <i class="fa-solid fa-book-open"></i>
                 <span>പഠനം</span>
             </div>
-            <div class="nav-item" onclick="alert('ക്വിസ് ഗെയിംസ് അടുത്ത അപ്ഡേറ്റിൽ വരുന്നു!')">
+            <div class="nav-item">
                 <i class="fa-solid fa-gamepad"></i>
                 <span>കളിക്കാം</span>
             </div>
         </nav>
-
     </div>
 
     <script>
-        // ഇന്നത്തെ തീയതി കാണിക്കാൻ
         const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
         document.getElementById('current-date').innerText = new Date().toLocaleDateString('ml-IN', options);
 
-        // LocalStorage വഴി ടിക്ക് മാർക്കുകൾ സേവ് ചെയ്യാനും ലോഡ് ചെയ്യാനും
-        const checkboxes = document.querySelectorAll('.task-checkbox');
+        // പ്രൊഫൈൽ വിൻഡോ കാണിക്കാൻ
+        function showModal() {
+            document.getElementById('profile-modal').style.display = 'flex';
+        }
 
-        // ലോഡ് ചെയ്യുമ്പോൾ
-        checkboxes.forEach(checkbox => {
-            const savedState = localStorage.getItem(checkbox.id);
-            if (savedState === 'true') {
-                checkbox.checked = true;
+        // പ്രൊഫൈൽ ഡാറ്റ ലോക്കൽ സ്റ്റോറേജിലേക്ക് മാറ്റാൻ
+        function saveProfile() {
+            const name = document.getElementById('input-name').value;
+            const uClass = document.getElementById('input-class').value;
+            const madrassa = document.getElementById('input-madrassa').value;
+            const place = document.getElementById('input-place').value;
+
+            if(name === "") {
+                alert("ദയവായി പേര് ടൈപ്പ് ചെയ്യുക!");
+                return;
             }
 
-            // ക്ലിക്ക് ചെയ്യുമ്പോൾ സേവ് ചെയ്യാൻ
+            localStorage.setItem('child_name', name);
+            localStorage.setItem('child_class', uClass);
+            localStorage.setItem('child_madrassa', madrassa);
+            localStorage.setItem('child_place', place);
+
+            document.getElementById('profile-modal').style.display = 'none';
+            updateUI();
+        }
+
+        // ആപ്പ് തുറക്കുമ്പോൾ പ്രൊഫൈൽ ഉണ്ടോ എന്ന് നോക്കാൻ
+        function updateUI() {
+            const name = localStorage.getItem('child_name');
+            const uClass = localStorage.getItem('child_class');
+            const madrassa = localStorage.getItem('child_madrassa');
+            const place = localStorage.getItem('child_place');
+
+            if (!name) {
+                showModal();
+            } else {
+                document.getElementById('welcome-text').innerText = `അസ്സലാമു അലൈക്കും, ${name} ${uClass ? '('+uClass+')' : ''} 👋`;
+                
+                if(madrassa || place) {
+                    const infoBox = document.getElementById('header-madrassa-info');
+                    infoBox.style.display = 'inline-block';
+                    infoBox.innerText = `${madrassa} ${place ? '• ' + place : ''}`;
+                }
+            }
+        }
+
+        // ടാസ്ക് ചെക്ക്ബോക്സ് ലോഡ് ചെയ്യൽ
+        const checkboxes = document.querySelectorAll('.task-checkbox');
+        checkboxes.forEach(checkbox => {
+            const savedState = localStorage.getItem(checkbox.id);
+            if (savedState === 'true') checkbox.checked = true;
             checkbox.addEventListener('change', () => {
                 localStorage.setItem(checkbox.id, checkbox.checked);
             });
         });
+
+        // റൺ ചെയ്യുമ്പോൾ ലോഡ് ചെയ്യുക
+        updateUI();
     </script>
 </body>
 </html>
