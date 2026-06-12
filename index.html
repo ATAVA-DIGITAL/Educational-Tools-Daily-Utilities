@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>മദ്രസ മാസ്റ്റർ - Madrassa App</title>
+    <!-- Google Fonts for professional look -->
+    <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --bg-light: #F7F9FC;
+            --card-white: #FFFFFF;
+            --text-dark: #2C3E50;
+            --text-muted: #7F8C8D;
+            --success-green: #2ECC71;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Manjari', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Mobile Screen Container */
+        .app-container {
+            width: 100%;
+            max-width: 480px; /* Perfect for Mobile & Tab view */
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding-bottom: 80px; /* Space for bottom nav */
+        }
+
+        /* Header Style */
+        .app-header {
+            background: linear-gradient(135deg, #1A252F, #2C3E50);
+            color: white;
+            padding: 25px 20px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .app-header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .app-header p {
+            font-size: 14px;
+            color: #BDC3C7;
+        }
+
+        /* Main Content Area */
+        .content {
+            padding: 20px;
+            flex: 1;
+        }
+
+        /* Quick Info / Prayer Time Card */
+        .info-card {
+            background-color: var(--card-white);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border-left: 5px solid var(--primary-gold);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-card h3 {
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        /* Task Tracker Section */
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary-gold);
+        }
+
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .task-item {
+            background-color: var(--card-white);
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+
+        .task-item:active {
+            transform: scale(0.98);
+        }
+
+        .task-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .task-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            font-size: 18px;
+        }
+
+        .task-name {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* Custom Modern Checkbox */
+        .checkbox-wrapper input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-wrapper .custom-checkbox {
+            width: 26px;
+            height: 26px;
+            border: 2px solid #BDC3C7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .checkbox-wrapper .custom-checkbox i {
+            color: white;
+            font-size: 12px;
+            display: none;
+        }
+
+        .checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox {
+            background-color: var(--success-green);
+            border-color: var(--success-green);
+        }
+
+        .checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox i {
+            display: block;
+        }
+
+        /* Bottom Navigation Bar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            max-width: 480px;
+            background-color: var(--card-white);
+            height: 70px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            z-index: 100;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            gap: 4px;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-item i {
+            font-size: 20px;
+        }
+
+        .nav-item.active {
+            color: var(--primary-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- App Header -->
+        <header class="app-header">
+            <h1>അസ്സലാമു അലൈക്കും 👋</h1>
+            <p>ഇന്ന് മദ്രസയിൽ പോയിരുന്നോ? നല്ല ശീലങ്ങൾ ഇതാ ഇവിടെ ട്രാക്ക് ചെയ്യാം.</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="content">
+            
+            <!-- Quick Info Card -->
+            <div class="info-card">
+                <div>
+                    <h3>ഇന്നത്തെ തീയതി</h3>
+                    <p style="color: var(--text-muted); font-size: 14px;" id="current-date">ലോഡ് ചെയ്യുന്നു...</p>
+                </div>
+                <i class="fa-regular fa-calendar-days" style="font-size: 24px; color: var(--primary-gold);"></i>
+            </div>
+
+            <!-- Daily Tracker Section -->
+            <h2 class="section-title"><i class="fa-solid fa-star"></i> എന്റെ ഇന്നത്തെ ദിവസം</h2>
+            
+            <div class="task-list">
+                
+                <!-- Task 1 -->
+                <div class="task-item">
+                    <div class="task-info">
+                        <div class="task-icon"><i class="fa-solid fa-mosque"></i></div>
+                        <div class="task-name">ഫർള് നിസ്കാരങ്ങൾ</div>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <label>
+                            <input type="checkbox" class="task-checkbox" id="prayer">
+                            <div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Task 2 -->
+                <div class="task-item">
+                    <div class="task-info">
+                        <div class="task-icon"><i class="fa-solid fa-book-quran"></i></div>
+                        <div class="task-name">ഖുർആൻ പാരായണം</div>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <label>
+                            <input type="checkbox" class="task-checkbox" id="quran">
+                            <div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Task 3 -->
+                <div class="task-item">
+                    <div class="task-info">
+                        <div class="task-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                        <div class="task-name">മദ്രസ ഹോംവർക്കുകൾ</div>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <label>
+                            <input type="checkbox" class="task-checkbox" id="homework">
+                            <div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Task 4 -->
+                <div class="task-item">
+                    <div class="task-info">
+                        <div class="task-icon"><i class="fa-solid fa-heart"></i></div>
+                        <div class="task-name">മാതാപിതാക്കളെ സഹായിക്കൽ</div>
+                    </div>
+                    <div class="checkbox-wrapper">
+                        <label>
+                            <input type="checkbox" class="task-checkbox" id="parents">
+                            <div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <!-- Bottom App-like Navigation Bar -->
+        <nav class="bottom-nav">
+            <div class="nav-item active">
+                <i class="fa-solid fa-house"></i>
+                <span>ഹോം</span>
+            </div>
+            <div class="nav-item" onclick="alert('പഠനം സെക്ഷൻ അടുത്ത അപ്ഡേറ്റിൽ വരുന്നു!')">
+                <i class="fa-solid fa-book-open"></i>
+                <span>പഠനം</span>
+            </div>
+            <div class="nav-item" onclick="alert('ക്വിസ് ഗെയിംസ് അടുത്ത അപ്ഡേറ്റിൽ വരുന്നു!')">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>കളിക്കാം</span>
+            </div>
+        </nav>
+
+    </div>
+
+    <script>
+        // ഇന്നത്തെ തീയതി കാണിക്കാൻ
+        const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('ml-IN', options);
+
+        // LocalStorage വഴി ടിക്ക് മാർക്കുകൾ സേവ് ചെയ്യാനും ലോഡ് ചെയ്യാനും
+        const checkboxes = document.querySelectorAll('.task-checkbox');
+
+        // ലോഡ് ചെയ്യുമ്പോൾ
+        checkboxes.forEach(checkbox => {
+            const savedState = localStorage.getItem(checkbox.id);
+            if (savedState === 'true') {
+                checkbox.checked = true;
+            }
+
+            // ക്ലിക്ക് ചെയ്യുമ്പോൾ സേവ് ചെയ്യാൻ
+            checkbox.addEventListener('change', () => {
+                localStorage.setItem(checkbox.id, checkbox.checked);
+            });
+        });
+    </script>
+</body>
+</html>
