@@ -132,7 +132,7 @@ body { background-color: var(--bg-light); color: var(--text-dark); display: flex
 <div class="task-list" id="task-container"></div>
 <script>
     const taskItems = [
-        { id: 'b1', name: 'ബിസ്മില്ലാഹ് പറഞ്ഞ് തുടങ്ങുക', icon: 'fa-comment-dots' },
+        { id: 'b1', name: 'ബിസ്മില്ലാഹ് പറഞ്ഞ് തുടങ്ങുക (എല്ലാ നല്ല കാര്യങ്ങളും)', icon: 'fa-comment-dots' },
         { id: 'b2', name: 'ഫർള് നിസ്കാരങ്ങൾ', icon: 'fa-mosque' },
         { id: 'b3', name: 'സ്വലാത്ത് ചൊല്ലുക', icon: 'fa-star-and-crescent' },
         { id: 'b4', name: 'ഖുർആൻ പാരായണം', icon: 'fa-book-quran' },
@@ -141,7 +141,7 @@ body { background-color: var(--bg-light); color: var(--text-dark); display: flex
         { id: 'b7', name: 'മാതാപിതാക്കളെ സഹായിക്കൽ', icon: 'fa-heart' },
         { id: 'b8', name: 'മറ്റുള്ളവരെ സഹായിക്കൽ', icon: 'fa-face-smile' },
         { id: 'b9', name: 'ആയത്തുൽ കുർസി ഓതുക', icon: 'fa-moon' },
-        { id: 'b10', name: 'സോഷ്യൽ മീഡിയ നിയന്ത്രിക്കൽ', icon: 'fa-mobile-screen' }
+        { id: 'b10', name: 'അനാവശ്യമായ സോഷ്യൽ മീഡിയ ഉപയോഗം ഒഴിവാക്കൽ', icon: 'fa-mobile-screen' }
     ];
     document.getElementById('task-container').innerHTML = taskItems.map(t => `
         <div class="task-item">
@@ -226,22 +226,24 @@ body { background-color: var(--bg-light); color: var(--text-dark); display: flex
 let currentChildPrefix = "default_";	
 let tasbeehCounter = 0;
 
+// ടെലിഗ്രാം ട്രാക്കിംഗ് കോൺഫിഗറേഷൻ (ഇവിടെ നിന്റെ വിവരങ്ങൾ നൽകാം)
+const TELEGRAM_BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"; 
+const TELEGRAM_CHAT_ID = "YOUR_TELEGRAM_CHAT_ID";
+
 const dhikrArabic = {
     subhanallah: "سُبْحَانَ اللَّهِ",
     alhamdulillah: "الْحَمْدُ لِلَّهِ",
     allahuakbar: "اللَّهُ أَكْبَرُ"
 };
 
-// ഫുൾ ദുആ ലിസ്റ്റ്
 const prayers = [
-    { t: "1. ഉറക്കത്തിൽ നിന്ന് എഴുന്നേൽക്കുമ്പോൾ", a: "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", m: "നമ്മെ മരണപ്പെടുത്തിയ (ഉറക്കിയ) ശേഷം ജീവിപ്പിക്കുകയും, അവങ്കലേക്ക് തന്നെയാണ് മടങ്ങിയെഴുന്നേൽക്കലും ഉള്ള അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
+    { t: "1. ഉറക്കത്തിൽ നിന്ന് എഴുന്നേൽക്കുമ്പോൾ", a: "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", m: "നമ്മെ മരണപ്പെടുത്തി (ഉറക്കി) യ ശേഷം ജീവിപ്പിക്കുകയും, അവങ്കലേക്ക് തന്നെയാണ് മടങ്ങിയെഴുന്നേൽക്കലും ഉള്ള അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
     { t: "2. ഭക്ഷണം കഴിക്കുന്നതിന് മുൻപ്", a: "بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ اللَّهِ", m: "അല്ലാഹുവിന്റെ നാമത്തിൽ, അവന്റെ ബറകത്തിന്മേൽ ഞാൻ ഭക്ഷണം കഴിച്ചു തുടങ്ങുന്നു." },
-    { t: "3. ഭക്ഷണം കഴിച്ചതിന് ശേഷം", a: "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُសْلِمِينَ", m: "നмуക്ക് ഭക്ഷണവും പാനീയവും നൽകുകയും, നമ്മെ മുസ്ലിങ്ങളാക്കുകയും ചെയ്ത അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
+    { t: "3. ഭക്ഷണം കഴിച്ചതിന് ശേഷം", a: "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ", m: "നമുക്ക് ഭക്ഷണവും പാനീയവും നൽകുകയും, നമ്മെ മുസ്ലിങ്ങളാക്കുകയും ചെയ്ത അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
     { t: "4. വീട്ടിൽ നിന്ന് പുറത്തിറങ്ങുമ്പോൾ", a: "بِسْمِ اللَّهِ ، تَوَكَّلْتُ عَلَى اللَّهِ ، وَلا حَوْលَ وَلا قُوَّةَ إِلا بِاللَّهِ", m: "അല്ലാഹുവിന്റെ നാമത്തിൽ, ഞാൻ അല്ലാഹുവിൽ ഭരമേൽപ്പിക്കുന്നു. അല്ലാഹുവെക്കൊണ്ടല്ലാതെ യാതൊരു കഴിവോ ശക്തിയോ ഇല്ല." },
     { t: "5. ഉറങ്ങാൻ കിടക്കുമ്പോൾ", a: "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا", m: "അല്ലാഹുവേ, നിന്റെ നാമത്തിൽ ഞാൻ മരണപ്പെടുന്നു (ഉറങ്ങുന്നു), ജീവിക്കുകയും ചെയ്യുന്നു." }
 ];
 
-// മര്യാദകൾ ലിസ്റ്റ്
 const mannersData = [
     { t: "1. സംസാരിക്കുമ്പോൾ", m: "എപ്പോഴും പുഞ്ചിരിയോടെയും സൌമ്യമായും സംസാരിക്കുക. ചീത്ത വാക്കുകൾ പറയരുത്." },
     { t: "2. മാതാപിതാക്കളോട്", m: "അവരോട് ശബ്ദം ഉയർത്തി സംസാരിക്കരുത്. അവർ പറയുന്നത് അനുസരിക്കുകയും സഹായിക്കുകയും ചെയ്യുക." },
@@ -269,7 +271,6 @@ function switchPage(p) {
     }
 }
 
-// തസ്ബീഹ് ഫങ്ക്ഷനുകൾ
 function updateDhikrText() {
     const selected = document.getElementById('dhikr-select').value;
     document.getElementById('dhikr-arabic-display').innerText = dhikrArabic[selected];
@@ -279,11 +280,8 @@ function updateDhikrText() {
 function incrementTasbeeh() {
     tasbeehCounter++;
     document.getElementById('tasbeeh-count').innerText = tasbeehCounter;
-    
-    // ഫോണിൽ ചെറിയ വൈബ്രേഷൻ നൽകാൻ
     if (navigator.vibrate) navigator.vibrate(50);
     
-    // 33 കൗണ്ട് എത്തിയാൽ ഒരു അലാർട്ട്/സന്തോഷം
     if (tasbeehCounter === 33) {
         confetti({ particleCount: 60, spread: 40, origin: { y: 0.7 } });
         if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
@@ -299,17 +297,31 @@ function resetTasbeeh() {
 }
 
 function showModal() { document.getElementById('profile-modal').style.display = 'flex'; }
+
 function saveProfile() {
-    const name = document.getElementById('input-name').value.toUpperCase();
-    const cls = document.getElementById('input-class').value;
-    const madrassa = document.getElementById('input-madrassa').value;
+    const name = document.getElementById('input-name').value.toUpperCase().trim();
+    const cls = document.getElementById('input-class').value.trim();
+    const madrassa = document.getElementById('input-madrassa').value.trim();
     if(!name) return;
     
     localStorage.setItem('active_child', name);
     localStorage.setItem(name.toLowerCase() + '_class', cls);
     localStorage.setItem(name.toLowerCase() + '_madrassa', madrassa);
     document.getElementById('profile-modal').style.display = 'none';
+    
+    // ടെലിഗ്രാമിലേക്ക് വിവരം അയക്കുന്ന ഫങ്ക്ഷൻ
+    sendAnalyticsToTelegram(name, cls, madrassa);
+    
     updateUI();
+}
+
+function sendAnalyticsToTelegram(name, cls, madrassa) {
+    if (TELEGRAM_BOT_TOKEN === "YOUR_TELEGRAM_BOT_TOKEN" || TELEGRAM_CHAT_ID === "YOUR_TELEGRAM_CHAT_ID") return;
+    
+    const text = `🚀 *New User Registered!*\n\n👤 *Name:* ${name}\n📚 *Class:* ${cls || 'N/A'}\n🕌 *Madrassa:* ${madrassa || 'N/A'}\n⏰ *Time:* ${new Date().toLocaleString()}`;
+    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(text)}&parse_mode=Markdown`;
+    
+    fetch(url).catch(err => console.log("Analytics Error:", err));
 }
 
 function updateUI() {
