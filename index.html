@@ -16,6 +16,9 @@
 --text-dark: #2C3E50;	
 --text-muted: #7F8C8D;	
 --success-green: #2ECC71;	
+--tab-blue: #3498DB;
+--tab-purple: #9B59B6;
+--tab-orange: #E67E22;
 }	
 	
 * {	
@@ -180,6 +183,60 @@ border-radius: 50%; display: flex; align-items: center; justify-content: center;
 background-color: var(--success-green); border-color: var(--success-green);	
 }	
 .checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox i { display: block; }	
+
+/* 🌟 Learning Menu Style 🌟 */
+.learning-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 15px;
+margin-top: 10px;
+}
+
+.learning-card {
+background: var(--card-white);
+padding: 20px 15px;
+border-radius: 15px;
+text-align: center;
+box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+cursor: pointer;
+transition: transform 0.2s;
+border: 1px solid rgba(0,0,0,0.02);
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 12px;
+}
+
+.learning-card:active {
+transform: scale(0.96);
+}
+
+.learning-card .card-icon {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 22px;
+color: white;
+}
+
+.learning-card.duas .card-icon { background: linear-gradient(135deg, #3498DB, #2980B9); }
+.learning-card.manners .card-icon { background: linear-gradient(135deg, #2ECC71, #27AE60); }
+.learning-card.tasbeeh .card-icon { background: linear-gradient(135deg, #9B59B6, #8E44AD); }
+.learning-card.quiz .card-icon { background: linear-gradient(135deg, #E67E22, #D35400); }
+
+.learning-card h3 {
+font-size: 16px;
+font-weight: 700;
+color: var(--text-dark);
+}
+
+.learning-card p {
+font-size: 11px;
+color: var(--text-muted);
+}
 	
 /* Daily Quote Card Updated */	
 .quote-card {	
@@ -260,8 +317,9 @@ position: fixed; bottom: 0; width: 100%; max-width: 480px;
 background-color: var(--card-white); height: 70px;	
 display: flex; justify-content: space-around; align-items: center;	
 box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-top-right-radius: 20px;	
+z-index: 10;
 }	
-.nav-item { display: flex; flex-direction: column; align-items: center; color: var(--text-muted); font-size: 12px; font-weight: bold; gap: 4px; }	
+.nav-item { display: flex; flex-direction: column; align-items: center; color: var(--text-muted); font-size: 12px; font-weight: bold; gap: 4px; cursor: pointer; }	
 .nav-item i { font-size: 20px; }	
 .nav-item.active { color: var(--primary-gold); }	
 
@@ -276,11 +334,14 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
     cursor: pointer;
     margin-top: 10px;
 }
+
+/* Page Control Classes */
+.app-page { display: none; }
+.app-page.active-page { display: block; }
 </style>	
 </head>	
 <body>	
 	
-<!-- Popup Form -->	
 <div class="modal-overlay" id="profile-modal">	
 <div class="profile-card">	
 <h2>കുട്ടിയുടെ പ്രൊഫൈൽ സെറ്റ് ചെയ്യുക ✨</h2>	
@@ -294,7 +355,6 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 	
 <div class="app-container">	
 	
-<!-- App Header -->	
 <header class="app-header">	
 <div class="header-actions">	
 <button class="action-btn" onclick="showModal()"><i class="fa-solid fa-users-gear"></i> കുട്ടിയെ മാറ്റുക</button>	
@@ -306,12 +366,11 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 <div class="score-badge" id="score-display"><i class="fa-solid fa-star"></i> ഇന്നത്തെ മാർക്ക്: 0 / 100</div>
 </header>	
 	
+<div id="page-home" class="app-page active-page">
 <main class="content">	
-<!-- Tasks Area -->	
 <h2 class="section-title"><i class="fa-solid fa-circle-check"></i> എന്റെ ഇന്നത്തെ ശീലങ്ങൾ</h2>	
 	
 <div class="task-list">	
-<!-- 1 -->
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-comment-dots"></i></div>	
@@ -322,7 +381,6 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 </div>	
 </div>	
 
-<!-- 2 -->
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-mosque"></i></div>	
@@ -333,7 +391,6 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 </div>	
 </div>	
 	
-<!-- 3 -->
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-star-and-crescent" style="color: var(--primary-gold);"></i></div>	
@@ -344,7 +401,6 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 </div>	
 </div>	
 	
-<!-- 4 -->
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-book-quran"></i></div>	
@@ -355,7 +411,6 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 </div>	
 </div>	
 	
-<!-- 5 -->
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-user-graduate"></i></div>	
@@ -366,7 +421,6 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 </div>	
 </div>	
 	
-<!-- 6 -->
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-hands-praying"></i></div>	
@@ -377,7 +431,6 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 </div>	
 </div>	
 
-<!-- 7 -->
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-heart"></i></div>	
@@ -388,7 +441,6 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 </div>	
 </div>	
 
-<!-- 8 -->
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-heart-open" style="color: #E74C3C;"></i></div>	
@@ -399,7 +451,6 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 </div>	
 </div>	
 	
-<!-- 9 -->
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-moon"></i></div>	
@@ -410,7 +461,6 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 </div>	
 </div>	
 
-<!-- 10 -->
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>	
@@ -422,14 +472,46 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 </div>	
 </div>	
 	
-<!-- Daily Quote Card -->	
 <div class="quote-card">	
 <h4><i class="fa-solid fa-lightbulb"></i> ഇന്നത്തെ വചനം</h4>	
 <p>"വിദ്യ നേടുക എന്നത് ഓരോ മുസ്ലിമിന്റെയും നിർബന്ധ കടമയാകുന്നു."</p>	
 </div>	
-	
-<!-- ATAVA Branding Billboard -->	
-<div class="branding-billboard">	
+</main>
+</div>
+
+<div id="page-learning" class="app-page">
+<main class="content">
+<h2 class="section-title"><i class="fa-solid fa-book-open"></i> ഇസ്‌ലാമിക പഠനം</h2>
+
+<div class="learning-grid">
+<div class="learning-card duas" onclick="alert('ചെറിയ ദുആകൾ ഉടൻ വരുന്നു!')">
+<div class="card-icon"><i class="fa-solid fa-hands-praying"></i></div>
+<h3>ചെറിയ ദുആകൾ</h3>
+<p>നിത്യജീവിതത്തിലെ പ്രാർത്ഥനകൾ</p>
+</div>
+
+<div class="learning-card manners" onclick="alert('ഇസ്‌ലാമിക മര്യാദകൾ ഉടൻ വരുന്നു!')">
+<div class="card-icon"><i class="fa-solid fa-heart"></i></div>
+<h3>നല്ല മര്യാദകൾ</h3>
+<p>ഇസ്‌ലാമിക സ്വഭാവ ശീലങ്ങൾ</p>
+</div>
+
+<div class="learning-card tasbeeh" onclick="alert('ഡിജിറ്റൽ തസ്ബീഹ് ഉടൻ വരുന്നു!')">
+<div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
+<h3>ദിക്റുകൾ (തസ്ബീഹ്)</h3>
+<p>ഡിജിറ്റൽ തസ്ബീഹ് കൗണ്ടർ</p>
+</div>
+
+<div class="learning-card quiz" onclick="alert('ഇസ്‌ലാമിക് ക്വിസ്സ് ഉടൻ വരുന്നു!')">
+<div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+<h3>ഇസ്‌ലാമിക് ക്വിസ്സ്</h3>
+<p>കളിക്കാം അറിവ് നേടാം</p>
+</div>
+</div>
+</main>
+</div>
+
+<div class="branding-billboard" style="margin: 0 20px 25px 20px;">	
 <h2>ATAVA</h2>	
 <h3>DIGITAL SERVICES & TRADING</h3>	
 <div class="service-tags">	
@@ -438,17 +520,15 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 <span class="tag">Poster & Badge Design</span>	
 <span class="tag">Digital Portals</span>	
 </div>	
-	
 <div class="creator-section">	
 <p class="creator-title">Designed & Developed By</p>	
 <p class="creator-name">ABDUL SALAM AHSANI VAZHAKKAD</p>	
 </div>	
 </div>	
-</main>	
 	
 <nav class="bottom-nav">	
-<div class="nav-item active"><i class="fa-solid fa-house"></i><span>ഹോം</span></div>	
-<div class="nav-item" onclick="alert('പഠനം പേജ് ഉടൻ വരുന്നു!')"><i class="fa-solid fa-book-open"></i><span>പഠനം</span></div>	
+<div class="nav-item active" id="nav-home" onclick="switchPage('home')"><i class="fa-solid fa-house"></i><span>ഹോം</span></div>	
+<div class="nav-item" id="nav-learning" onclick="switchPage('learning')"><i class="fa-solid fa-book-open"></i><span>പഠനം</span></div>	
 <div class="nav-item" onclick="alert('കളിക്കാം പേജ് ഉടൻ വരുന്നു!')"><i class="fa-solid fa-gamepad"></i><span>കളിക്കാം</span></div>	
 </nav>	
 </div>	
@@ -463,6 +543,22 @@ document.getElementById('input-class').value = '';
 document.getElementById('input-madrassa').value = '';
 document.getElementById('input-place').value = '';
 }	
+
+/* Page Switching Logic */
+function switchPage(pageName) {
+    // എല്ലാ പേജുകളിൽ നിന്നും active ക്ലാസ് കളയുക
+    document.querySelectorAll('.app-page').forEach(page => page.classList.remove('active-page'));
+    document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+
+    // സെലക്ട് ചെയ്ത പേജ് മാത്രം കാണിക്കുക
+    if(pageName === 'home') {
+        document.getElementById('page-home').classList.add('active-page');
+        document.getElementById('nav-home').classList.add('active');
+    } else if(pageName === 'learning') {
+        document.getElementById('page-learning').classList.add('active-page');
+        document.getElementById('nav-learning').classList.add('active');
+    }
+}
 	
 function handleTaskChange(element) {
     localStorage.setItem(currentChildPrefix + element.id, element.checked); 
