@@ -226,9 +226,9 @@ body { background-color: var(--bg-light); color: var(--text-dark); display: flex
 let currentChildPrefix = "default_";	
 let tasbeehCounter = 0;
 
-// ടെലിഗ്രാം ട്രാക്കിംഗ് കോൺഫിഗറേഷൻ (ഇവിടെ നിന്റെ വിവരങ്ങൾ നൽകാം)
-const TELEGRAM_BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"; 
-const TELEGRAM_CHAT_ID = "YOUR_TELEGRAM_CHAT_ID";
+// ടെലിഗ്രാം ട്രാക്കിംഗ് കോൺഫിഗറേഷൻ
+const TELEGRAM_BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"; // ഇവിടെ നിന്റെ ബോട്ട് ടോക്കൺ മാത്രം പേസ്റ്റ് ചെയ്യുക
+const TELEGRAM_CHAT_ID = "764740180"; // നിന്റെ Chat ID ഞാൻ സെറ്റ് ചെയ്തിട്ടുണ്ട്!
 
 const dhikrArabic = {
     subhanallah: "سُبْحَانَ اللَّهِ",
@@ -237,7 +237,7 @@ const dhikrArabic = {
 };
 
 const prayers = [
-    { t: "1. ഉറക്കത്തിൽ നിന്ന് എഴുന്നേൽക്കുമ്പോൾ", a: "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", m: "നമ്മെ മരണപ്പെടുത്തി (ഉറക്കി) യ ശേഷം ജീവിപ്പിക്കുകയും, അവങ്കലേക്ക് തന്നെയാണ് മടങ്ങിയെഴുന്നേൽക്കലും ഉള്ള അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
+    { t: "1. ഉറക്കത്തിൽ നിന്ന് എഴുന്നേൽക്കുമ്പോൾ", a: "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا അَمَاتَنَا وَإِلَيْهِ النُّشُورُ", m: "നമ്മെ മരണപ്പെടുത്തി (ഉറക്കി) യ ശേഷം ജീവിപ്പിക്കുകയും, അവങ്കലേക്ക് തന്നെയാണ് മടങ്ങിയെഴുന്നേൽക്കലും ഉള്ള അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
     { t: "2. ഭക്ഷണം കഴിക്കുന്നതിന് മുൻപ്", a: "بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ اللَّهِ", m: "അല്ലാഹുവിന്റെ നാമത്തിൽ, അവന്റെ ബറകത്തിന്മേൽ ഞാൻ ഭക്ഷണം കഴിച്ചു തുടങ്ങുന്നു." },
     { t: "3. ഭക്ഷണം കഴിച്ചതിന് ശേഷം", a: "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ", m: "നമുക്ക് ഭക്ഷണവും പാനീയവും നൽകുകയും, നമ്മെ മുസ്ലിങ്ങളാക്കുകയും ചെയ്ത അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
     { t: "4. വീട്ടിൽ നിന്ന് പുറത്തിറങ്ങുമ്പോൾ", a: "بِسْمِ اللَّهِ ، تَوَكَّلْتُ عَلَى اللَّهِ ، وَلا حَوْលَ وَلا قُوَّةَ إِلا بِاللَّهِ", m: "അല്ലാഹുവിന്റെ നാമത്തിൽ, ഞാൻ അല്ലാഹുവിൽ ഭരമേൽപ്പിക്കുന്നു. അല്ലാഹുവെക്കൊണ്ടല്ലാതെ യാതൊരു കഴിവോ ശക്തിയോ ഇല്ല." },
@@ -309,14 +309,14 @@ function saveProfile() {
     localStorage.setItem(name.toLowerCase() + '_madrassa', madrassa);
     document.getElementById('profile-modal').style.display = 'none';
     
-    // ടെലിഗ്രാമിലേക്ക് വിവരം അയക്കുന്ന ഫങ്ക്ഷൻ
+    // ടെലിഗ്രാമിലേക്ക് വിവരം അയക്കുന്നു
     sendAnalyticsToTelegram(name, cls, madrassa);
     
     updateUI();
 }
 
 function sendAnalyticsToTelegram(name, cls, madrassa) {
-    if (TELEGRAM_BOT_TOKEN === "YOUR_TELEGRAM_BOT_TOKEN" || TELEGRAM_CHAT_ID === "YOUR_TELEGRAM_CHAT_ID") return;
+    if (TELEGRAM_BOT_TOKEN === "YOUR_TELEGRAM_BOT_TOKEN") return;
     
     const text = `🚀 *New User Registered!*\n\n👤 *Name:* ${name}\n📚 *Class:* ${cls || 'N/A'}\n🕌 *Madrassa:* ${madrassa || 'N/A'}\n⏰ *Time:* ${new Date().toLocaleString()}`;
     const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(text)}&parse_mode=Markdown`;
