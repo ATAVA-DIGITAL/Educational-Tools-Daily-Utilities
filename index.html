@@ -315,7 +315,7 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-comment-dots"></i></div>	
-<div class="task-name">കാര്യങ്ങൾ "ബിസ്മില്ലാഹ്" പറഞ്ഞ് തുടങ്ങുക</div>	
+<div class="task-name">ഓരോ നല്ല കാര്യവും "ബിസ്മില്ലാഹ്" പറഞ്ഞ് തുടങ്ങുക</div>	
 </div>	
 <div class="checkbox-wrapper">	
 <label><input type="checkbox" class="task-checkbox" id="bismillah" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label>	
@@ -414,7 +414,7 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>	
-<div class="task-name">അനാവശ്യ സോഷ്യൽ മീഡിയ ഉപയോഗം കുറയ്ക്കൽ</div>	
+<div class="task-name">അനാവശ്യ സോഷ്യൽ MEDIA ഉപയോഗം കുറയ്ക്കൽ</div>	
 </div>	
 <div class="checkbox-wrapper">	
 <label><input type="checkbox" class="task-checkbox" id="minimize_social" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label>	
@@ -448,8 +448,8 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 	
 <nav class="bottom-nav">	
 <div class="nav-item active"><i class="fa-solid fa-house"></i><span>ഹോം</span></div>	
-<div class="nav-item"><i class="fa-solid fa-book-open"></i><span>പഠനം</span></div>	
-<div class="nav-item"><i class="fa-solid fa-gamepad"></i><span>കളിക്കാം</span></div>	
+<div class="nav-item" onclick="alert('പഠനം പേജ് ഉടൻ വരുന്നു!')"><i class="fa-solid fa-book-open"></i><span>പഠനം</span></div>	
+<div class="nav-item" onclick="alert('കളിക്കാം പേജ് ഉടൻ വരുന്നു!')"><i class="fa-solid fa-gamepad"></i><span>കളിക്കാം</span></div>	
 </nav>	
 </div>	
 	
@@ -544,7 +544,6 @@ function calculateScore() {
     checkboxes.forEach(checkbox => {
         if(checkbox.checked) checkedCount++;
     });
-    // 10 ടാസ്ക് ഉള്ളതുകൊണ്ട് ഓരോന്നിനും 10 മാർക്ക് വെച്ച് ആകെ 100 മാർക്ക്
     let finalScore = checkedCount * 10;
     document.getElementById('score-display').innerHTML = `<i class="fa-solid fa-star"></i> ഇന്നത്തെ മാർക്ക്: ${finalScore} / 100`;
 }
