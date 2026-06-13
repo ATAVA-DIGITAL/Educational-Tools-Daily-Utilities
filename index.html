@@ -79,7 +79,7 @@ width: 100%; padding: 12px; border: 1px solid #CCC; border-radius: 8px; font-siz
 }	
 .input-group input:focus { border-color: var(--primary-gold); }	
 	
-/* Header Style (Old Super Design) */	
+/* Header Style (Old Super Design with Premium Salam) */	
 .app-header {	
 background: linear-gradient(135deg, #1A252F, #2C3E50);	
 color: white;	
@@ -112,14 +112,25 @@ align-items: center;
 gap: 5px;	
 }	
 	
+/* ഭംഗിയാക്കിയ പുതിയ സലാം ഡിസൈൻ */	
+.arabic-salam-box {	
+background: rgba(255, 255, 255, 0.05);	
+border: 1px dashed rgba(212, 175, 55, 0.4);	
+padding: 10px 15px;	
+border-radius: 12px;	
+display: inline-block;	
+margin-top: 15px;	
+margin-bottom: 12px;	
+box-shadow: inset 0 0 10px rgba(0,0,0,0.2);	
+}	
+	
 .arabic-salam {	
 font-family: 'Amiri', serif;	
-font-size: 22px;	
+font-size: 23px;	
 color: var(--primary-gold);	
-margin-top: 15px;	
-margin-bottom: 8px;	
-line-height: 1.4;	
-direction: rtl;
+line-height: 1.2;	
+direction: rtl;	
+text-shadow: 0 2px 4px rgba(0,0,0,0.3);	
 }	
 	
 .welcome-msg { font-size: 18px; font-weight: bold; margin-bottom: 8px; letter-spacing: 0.5px; }	
@@ -131,19 +142,19 @@ padding: 5px 12px; border-radius: 20px;
 display: inline-block;	
 }	
 	
-.score-badge {
-background: linear-gradient(135deg, #FFD700, #D4AF37);
-color: #1A252F;
-padding: 6px 15px;
-border-radius: 20px;
-font-size: 14px;
-font-weight: bold;
-display: inline-flex;
-align-items: center;
-gap: 6px;
-margin-top: 12px;
-box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+.score-badge {	
+background: linear-gradient(135deg, #FFD700, #D4AF37);	
+color: #1A252F;	
+padding: 6px 15px;	
+border-radius: 20px;	
+font-size: 14px;	
+font-weight: bold;	
+display: inline-flex;	
+align-items: center;	
+gap: 6px;	
+margin-top: 12px;	
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);	
+}	
 	
 .content { padding: 20px; flex: 1; }	
 	
@@ -164,7 +175,7 @@ justify-content: space-between; box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 .task-icon {	
 width: 40px; height: 40px; background-color: rgba(212, 175, 55, 0.1);	
 border-radius: 50%; display: flex; align-items: center; justify-content: center;	
-color: var(--primary-gold); font-size: 18px; flex-shrink: 0;
+color: var(--primary-gold); font-size: 18px; flex-shrink: 0;	
 }	
 .task-name { font-weight: 700; font-size: 15px; line-height: 1.4; }	
 	
@@ -179,23 +190,23 @@ border-radius: 50%; display: flex; align-items: center; justify-content: center;
 background-color: var(--success-green); border-color: var(--success-green);	
 }	
 .checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox i { display: block; }	
-
-/* 🌟 New Learning Grid Styles 🌟 */
-.learning-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-.learning-card { background: white; padding: 20px 15px; border-radius: 15px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.02); }
-.card-icon-circle { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; color: white; }
-.duas .card-icon-circle { background: linear-gradient(135deg, #3498DB, #2980B9); }
-.manners .card-icon-circle { background: linear-gradient(135deg, #2ECC71, #27AE60); }
-.tasbeeh .card-icon-circle { background: linear-gradient(135deg, #9B59B6, #8E44AD); }
-.quiz .card-icon-circle { background: linear-gradient(135deg, #E67E22, #D35400); }
-
-/* Dua Item Styles */
-.dua-card { background: white; padding: 20px; border-radius: 15px; margin-bottom: 15px; border-left: 5px solid var(--primary-gold); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
-.dua-header { font-weight: 700; color: var(--primary-gold); margin-bottom: 12px; display: block; font-size: 15px; }
-.dua-arabic-text { font-family: 'Amiri', serif; font-size: 22px; text-align: right; line-height: 1.8; margin-bottom: 12px; color: #2C3E50; direction: rtl; }
-.dua-malayalam-text { font-size: 14px; color: var(--text-muted); line-height: 1.6; font-style: italic; }
-.back-btn { background: none; border: none; color: var(--primary-gold); font-weight: bold; font-size: 16px; margin-bottom: 20px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
-
+	
+/* Learning Grid Styles */	
+.learning-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }	
+.learning-card { background: white; padding: 20px 15px; border-radius: 15px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.02); }	
+.card-icon-circle { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; color: white; }	
+.duas .card-icon-circle { background: linear-gradient(135deg, #3498DB, #2980B9); }	
+.manners .card-icon-circle { background: linear-gradient(135deg, #2ECC71, #27AE60); }	
+.tasbeeh .card-icon-circle { background: linear-gradient(135deg, #9B59B6, #8E44AD); }	
+.quiz .card-icon-circle { background: linear-gradient(135deg, #E67E22, #D35400); }	
+	
+/* Dua Item Styles */	
+.dua-card { background: white; padding: 20px; border-radius: 15px; margin-bottom: 15px; border-left: 5px solid var(--primary-gold); box-shadow: 0 4px 10px rgba(0,0,0,0.02); }	
+.dua-header { font-weight: 700; color: var(--primary-gold); margin-bottom: 12px; display: block; font-size: 15px; }	
+.dua-arabic-text { font-family: 'Amiri', serif; font-size: 22px; text-align: right; line-height: 1.8; margin-bottom: 12px; color: #2C3E50; direction: rtl; }	
+.dua-malayalam-text { font-size: 14px; color: var(--text-muted); line-height: 1.6; font-style: italic; }	
+.back-btn { background: none; border: none; color: var(--primary-gold); font-weight: bold; font-size: 16px; margin-bottom: 20px; cursor: pointer; display: flex; align-items: center; gap: 8px; }	
+	
 /* Quote Card Updated */	
 .quote-card {	
 background: #FFFDEE;	
@@ -207,7 +218,7 @@ text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 .quote-card h4 { color: var(--primary-gold); font-size: 16px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }	
 .quote-card p { font-size: 15px; font-weight: 600; color: #34495E; line-height: 1.6; }	
 	
-/* ATAVA Branding Billboard (The Old Super Design) */	
+/* ATAVA Branding Billboard (Exact Match to image_ee78e3.jpg) */	
 .branding-billboard {	
 background: #1A252F;	
 color: white;	
@@ -221,7 +232,7 @@ border: 1px solid rgba(212, 175, 55, 0.2);
 .branding-billboard h2 { font-size: 18px; color: var(--primary-gold); margin-bottom: 5px; letter-spacing: 1px; }	
 .branding-billboard h3 { font-size: 11px; color: #95A5A6; letter-spacing: 2px; margin-bottom: 15px; font-weight: 400; }	
 .service-tags { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-bottom: 15px; }	
-.tag { background: rgba(255, 255, 255, 0.08); padding: 4px 10px; border-radius: 12px; font-size: 11px; color: #E0E0E0; }	
+.tag { background: rgba(255, 255, 255, 0.08); padding: 6px 14px; border-radius: 12px; font-size: 11px; color: #E0E0E0; border: 1px solid rgba(255,255,255,0.05); }	
 .creator-section { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; margin-top: 5px; }	
 .creator-title { font-size: 9px; color: #95A5A6; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }	
 .creator-name { font-size: 13px; color: var(--card-white); font-weight: 700; letter-spacing: 0.5px; }	
@@ -232,17 +243,17 @@ position: fixed; bottom: 0; width: 100%; max-width: 480px;
 background-color: var(--card-white); height: 70px;	
 display: flex; justify-content: space-around; align-items: center;	
 box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-top-right-radius: 20px;	
-z-index: 10;
+z-index: 10;	
 }	
 .nav-item { display: flex; flex-direction: column; align-items: center; color: var(--text-muted); font-size: 12px; font-weight: bold; gap: 4px; cursor: pointer; }	
 .nav-item i { font-size: 20px; }	
 .nav-item.active { color: var(--primary-gold); }	
-
-.save-btn { background: var(--primary-gold); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; }
-
-/* Page Control */
-.app-page { display: none; }
-.active-page { display: block; }
+	
+.save-btn { background: var(--primary-gold); color: white; border: none; width: 100%; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; }	
+	
+/* Page Control */	
+.app-page { display: none; }	
+.active-page { display: block; }	
 </style>	
 </head>	
 <body>	
@@ -261,56 +272,67 @@ z-index: 10;
 <div class="app-container">	
 <header class="app-header">	
 <div class="header-actions"><button class="action-btn" onclick="showModal()"><i class="fa-solid fa-users-gear"></i> മാറ്റുക</button></div>	
-<div class="arabic-salam">السَّلَامُ عَلَيْكُمْ</div>	
+<!-- ഭംഗിയാക്കിയ ഫുൾ സലാം ബോക്സ് -->	
+<div class="arabic-salam-box">	
+    <div class="arabic-salam">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ</div>	
+</div>	
 <h1 id="welcome-text" class="welcome-msg">ഹലോ 👋</h1>	
-<div id="header-madrassa-info" class="child-info"></div><br>
-<div class="score-badge" id="score-display"><i class="fa-solid fa-star"></i> ഇന്നത്തെ മാർക്ക്: 0 / 100</div>
+<div id="header-madrassa-info" class="child-info"></div><br>	
+<div class="score-badge" id="score-display"><i class="fa-solid fa-star"></i> ഇന്നത്തെ മാർക്ക്: 0 / 100</div>	
 </header>	
 	
-<!-- 🏠 HOME PAGE (Unchanged Design) -->
-<div id="page-home" class="app-page active-page">
-<main class="content">	
+<!-- 🏠 HOME PAGE -->	
+<div id="page-home" class="app-page active-page">	
+<main class="content">		
 <h2 class="section-title"><i class="fa-solid fa-circle-check"></i> എന്റെ ഇന്നത്തെ ശീലങ്ങൾ</h2>	
-<div class="task-list">
-    <!-- Tasks list stays same as before -->
-    <div class="task-item"><div class="task-info"><div class="task-icon"><i class="fa-solid fa-comment-dots"></i></div><div class="task-name">ബിസ്മില്ലാഹ് പറഞ്ഞ് തുടങ്ങുക</div></div><div class="checkbox-wrapper"><label><input type="checkbox" class="task-checkbox" id="bismillah" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label></div></div>
-    <div class="task-item"><div class="task-info"><div class="task-icon"><i class="fa-solid fa-mosque"></i></div><div class="task-name">ഫർള് നിസ്കാരങ്ങൾ</div></div><div class="checkbox-wrapper"><label><input type="checkbox" class="task-checkbox" id="prayer" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label></div></div>
-    <div class="task-item"><div class="task-info"><div class="task-icon"><i class="fa-solid fa-star-and-crescent"></i></div><div class="task-name">സ്വലാത്ത് ചൊല്ലുക</div></div><div class="checkbox-wrapper"><label><input type="checkbox" class="task-checkbox" id="swalath" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label></div></div>
-    <div class="task-item"><div class="task-info"><div class="task-icon"><i class="fa-solid fa-book-quran"></i></div><div class="task-name">ഖുർആൻ പാരായണം</div></div><div class="checkbox-wrapper"><label><input type="checkbox" class="task-checkbox" id="quran" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label></div></div>
-    <div class="task-item"><div class="task-info"><div class="task-icon"><i class="fa-solid fa-user-graduate"></i></div><div class="task-name">മദ്രസ ഹോംവർക്കുകൾ</div></div><div class="checkbox-wrapper"><label><input type="checkbox" class="task-checkbox" id="homework" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label></div></div>
-    <div class="task-item"><div class="task-info"><div class="task-icon"><i class="fa-solid fa-hands-praying"></i></div><div class="task-name">മാതാപിതാക്കൾക്ക് വേണ്ടി ദുആ</div></div><div class="checkbox-wrapper"><label><input type="checkbox" class="task-checkbox" id="dua_p" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label></div></div>
-</div>
-<div class="quote-card"><h4><i class="fa-solid fa-lightbulb"></i> ഇന്നത്തെ വചനം</h4><p>"വിദ്യ നേടുക എന്നത് ഓരോ മുസ്ലിമിന്റെയും നിർബന്ധ കടമയാകുന്നു."</p></div>
-</main>
-</div>
-
-<!-- 📚 LEARNING MENU PAGE -->
-<div id="page-learning" class="app-page">
-<main class="content">
-<h2 class="section-title"><i class="fa-solid fa-book-open"></i> ഇസ്‌ലാമിക പഠനം</h2>
-<div class="learning-grid">
-    <div class="learning-card duas" onclick="switchPage('dua-list')"><div class="card-icon-circle"><i class="fa-solid fa-hands-praying"></i></div><h3>ചെറിയ ദുആകൾ</h3><p>പ്രാർത്ഥനകൾ</p></div>
-    <div class="learning-card manners" onclick="alert('ഉടൻ വരുന്നു!')"><div class="card-icon-circle"><i class="fa-solid fa-heart"></i></div><h3>മര്യാദകൾ</h3><p>സ്വഭാവ ശീലങ്ങൾ</p></div>
-    <div class="learning-card tasbeeh" onclick="alert('ഉടൻ വരുന്നു!')"><div class="card-icon-circle"><i class="fa-solid fa-calculator"></i></div><h3>തസ്ബീഹ്</h3><p>ഡിജിറ്റൽ കൗണ്ടർ</p></div>
-    <div class="learning-card quiz" onclick="alert('ഉടൻ വരുന്നു!')"><div class="card-icon-circle"><i class="fa-solid fa-gamepad"></i></div><h3>ക്വിസ്സ്</h3><p>അറിവ് നേടാം</p></div>
-</div>
-</main>
-</div>
-
-<!-- 📜 DUA LIST PAGE -->
-<div id="page-dua-list" class="app-page">
-<main class="content">
-<button class="back-btn" onclick="switchPage('learning')"><i class="fa-solid fa-arrow-left"></i> തിരികെ</button>
-<h2 class="section-title">ചെറിയ ദുആകൾ</h2>
-<div id="dua-display-area"></div>
-</main>
-</div>
-
-<!-- ATAVA BILLBOARD (Always Present) -->
+<div class="task-list">	
+    <div class="task-item"><div class="task-info"><div class="task-icon"><i class="fa-solid fa-comment-dots"></i></div><div class="task-name">ബിസ്മില്ലാഹ് പറഞ്ഞ് തുടങ്ങുക</div></div><div class="checkbox-wrapper"><label><input type="checkbox" class="task-checkbox" id="bismillah" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label></div></div>	
+    <div class="task-item"><div class="task-info"><div class="task-icon"><i class="fa-solid fa-mosque"></i></div><div class="task-name">ഫർള് നിസ്കാരങ്ങൾ</div></div><div class="checkbox-wrapper"><label><input type="checkbox" class="task-checkbox" id="prayer" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label></div></div>	
+    <div class="task-item"><div class="task-info"><div class="task-icon"><i class="fa-solid fa-star-and-crescent"></i></div><div class="task-name">സ്വലാത്ത് ചൊല്ലുക</div></div><div class="checkbox-wrapper"><label><input type="checkbox" class="task-checkbox" id="swalath" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label></div></div>	
+    <div class="task-item"><div class="task-info"><div class="task-icon"><i class="fa-solid fa-book-quran"></i></div><div class="task-name">ഖുർആൻ പാരായണം</div></div><div class="checkbox-wrapper"><label><input type="checkbox" class="task-checkbox" id="quran" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label></div></div>	
+    <div class="task-item"><div class="task-info"><div class="task-icon"><i class="fa-solid fa-user-graduate"></i></div><div class="task-name">മദ്രസ ഹോംവർക്കുകൾ</div></div><div class="checkbox-wrapper"><label><input type="checkbox" class="task-checkbox" id="homework" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label></div></div>	
+    <div class="task-item"><div class="task-info"><div class="task-icon"><i class="fa-solid fa-hands-praying"></i></div><div class="task-name">മാതാപിതാക്കൾക്ക് വേണ്ടി ദുആ</div></div><div class="checkbox-wrapper"><label><input type="checkbox" class="task-checkbox" id="dua_p" onchange="handleTaskChange(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label></div></div>	
+</div>	
+<div class="quote-card"><h4><i class="fa-solid fa-lightbulb"></i> ഇന്നത്തെ വചനം</h4><p>"വിദ്യ നേടുക എന്നത് ഓരോ മുസ്ലിമിന്റെയും നിർബന്ധ കടമയാകുന്നു."</p></div>	
+</main>	
+</div>	
+	
+<!-- 📚 LEARNING MENU PAGE -->	
+<div id="page-learning" class="app-page">	
+<main class="content">	
+<h2 class="section-title"><i class="fa-solid fa-book-open"></i> ഇസ്‌ലാമിക പഠനം</h2>	
+<div class="learning-grid">	
+    <div class="learning-card duas" onclick="switchPage('dua-list')"><div class="card-icon-circle"><i class="fa-solid fa-hands-praying"></i></div><h3>ചെറിയ ദുആകൾ</h3><p>പ്രാർത്ഥനകൾ</p></div>	
+    <div class="learning-card manners" onclick="alert('ഉടൻ വരുന്നു!')"><div class="card-icon-circle"><i class="fa-solid fa-heart"></i></div><h3>മര്യാദകൾ</h3><p>സ്വഭാവ ശീലങ്ങൾ</p></div>	
+    <div class="learning-card tasbeeh" onclick="alert('ഉടൻ വരുന്നു!')"><div class="card-icon-circle"><i class="fa-solid fa-calculator"></i></div><h3>തസ്ബീഹ്</h3><p>ഡിജിറ്റൽ കൗണ്ടർ</p></div>	
+    <div class="learning-card quiz" onclick="alert('ഉടൻ വരുന്നു!')"><div class="card-icon-circle"><i class="fa-solid fa-gamepad"></i></div><h3>ക്വിസ്സ്</h3><p>അറിവ് നേടാം</p></div>	
+</div>	
+</main>	
+</div>	
+	
+<!-- 📜 DUA LIST PAGE -->	
+<div id="page-dua-list" class="app-page">	
+<main class="content">	
+<button class="back-btn" onclick="switchPage('learning')"><i class="fa-solid fa-arrow-left"></i> തിരികെ</button>	
+<h2 class="section-title">ചെറിയ ദുആകൾ</h2>	
+<div id="dua-display-area"></div>	
+</main>	
+</div>	
+	
+<!-- ATAVA BRANDING BILLBOARD (Perfect match with image_ee78e3.jpg) -->	
 <div class="branding-billboard" style="margin: 0 20px 25px 20px;">	
-<h2>ATAVA</h2><h3>DIGITAL SERVICES</h3>	
-<div class="service-tags"><span class="tag">Data Entry</span><span class="tag">Typing Works</span><span class="tag">Design</span></div>	
-<div class="creator-section"><p class="creator-title">Developed By</p><p class="creator-name">ABDUL SALAM AHSANI VAZHAKKAD</p></div>	
+<h2>ATAVA</h2>	
+<h3>DIGITAL SERVICES & TRADING</h3>	
+<div class="service-tags">	
+    <span class="tag">Data Entry</span>	
+    <span class="tag">Typing Works</span>	
+    <span class="tag">Poster & Badge Design</span>	
+    <span class="tag">Digital Portals</span>	
+</div>	
+<div class="creator-section">	
+    <p class="creator-title">DESIGNED & DEVELOPED BY</p>	
+    <p class="creator-name">ABDUL SALAM AHSANI VAZHAKKAD</p>	
+</div>	
 </div>	
 	
 <nav class="bottom-nav">	
@@ -321,70 +343,70 @@ z-index: 10;
 	
 <script>	
 let currentChildPrefix = "default_";	
-const allDuas = [
-    { title: "ഉറക്കത്തിൽ നിന്ന് എഴുന്നേൽക്കുമ്പോൾ", arabic: "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", malayalam: "നമ്മെ മരണപ്പെടുത്തിയ (ഉറക്കിയ) ശേഷം ജീവിപ്പിക്കുകയും, അവങ്കലേക്ക് തന്നെയാണ് മടങ്ങിയെഴുന്നേൽക്കലും ഉള്ള അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
-    { title: "ഭക്ഷണം കഴിക്കുന്നതിന് മുൻപ്", arabic: "بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ اللَّهِ", malayalam: "അല്ലാഹുവിന്റെ നാമത്തിൽ, അവന്റെ ബറകത്തിന്മേൽ ഞാൻ ഭക്ഷണം കഴിച്ചു തുടങ്ങുന്നു." },
-    { title: "ഭക്ഷണം കഴിച്ചതിന് ശേഷം", arabic: "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ", malayalam: "നമുക്ക് ഭക്ഷണവും പാനീയവും നൽകുകയും, നമ്മെ മുസ്ലിങ്ങളാക്കുകയും ചെയ്ത അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
-    { title: "വീട്ടിൽ നിന്ന് പുറത്തിറങ്ങുമ്പോൾ", arabic: "بِسْمِ اللَّهِ ، تَوَكَّلْتُ عَلَى اللَّهِ ، وَلا حَوْلَ وَلا قُوَّةَ إِلا بِاللَّهِ", malayalam: "അല്ലാഹുവിന്റെ നാമത്തിൽ, ഞാൻ അല്ലാഹുവിൽ ഭരമേൽപ്പിക്കുന്നു." },
-    { title: "ഉറങ്ങാൻ കിടക്കുമ്പോൾ", arabic: "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا", malayalam: "അല്ലാഹുവേ, നിന്റെ നാമത്തിൽ ഞാൻ മരണപ്പെടുന്നു (ഉറങ്ങുന്നു), ജീവിക്കുകയും ചെയ്യുന്നു." }
-];
-
-function switchPage(page) {
-    document.querySelectorAll('.app-page').forEach(p => p.classList.remove('active-page'));
-    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    document.getElementById('page-' + page).classList.add('active-page');
-    if(page === 'home') document.getElementById('nav-home').classList.add('active');
-    if(page === 'learning' || page === 'dua-list') document.getElementById('nav-learning').classList.add('active');
-    if(page === 'dua-list') {
-        document.getElementById('dua-display-area').innerHTML = allDuas.map(d => `
-            <div class="dua-card">
-                <span class="dua-header">${d.title}</span>
-                <div class="dua-arabic-text">${d.arabic}</div>
-                <div class="dua-malayalam-text">${d.malayalam}</div>
-            </div>
-        `).join('');
-    }
-}
-
-function showModal() { document.getElementById('profile-modal').style.display = 'flex'; }
-function saveProfile() {
-    const name = document.getElementById('input-name').value.toUpperCase();
-    if(!name) return;
-    localStorage.setItem('current_child', name);
-    localStorage.setItem(name.toLowerCase() + '_madrassa', document.getElementById('input-madrassa').value);
-    document.getElementById('profile-modal').style.display = 'none';
-    updateUI();
-}
-
-function updateUI() {
-    const child = localStorage.getItem('current_child');
-    if(!child) { showModal(); return; }
-    currentChildPrefix = child.toLowerCase() + "_";
-    document.getElementById('welcome-text').innerText = "ഹലോ, " + child + " 👋";
-    const madrassa = localStorage.getItem(currentChildPrefix + "madrassa");
-    document.getElementById('header-madrassa-info').innerText = madrassa || "";
-    loadTasks();
-}
-
-function handleTaskChange(el) {
-    localStorage.setItem(currentChildPrefix + el.id, el.checked);
-    if(el.checked) confetti({ particleCount: 100, spread: 70, origin: { y: 0.8 } });
-    calculateScore();
-}
-
-function loadTasks() {
-    document.querySelectorAll('.task-checkbox').forEach(cb => {
-        cb.checked = localStorage.getItem(currentChildPrefix + cb.id) === 'true';
-    });
-    calculateScore();
-}
-
-function calculateScore() {
-    const count = document.querySelectorAll('.task-checkbox:checked').length;
-    document.getElementById('score-display').innerHTML = `<i class="fa-solid fa-star"></i> ഇന്നത്തെ മാർക്ക്: ${count * 10} / 100`;
-}
-
-updateUI();
+const allDuas = [	
+    { title: "ഉറക്കത്തിൽ നിന്ന് എഴുന്നേൽക്കുമ്പോൾ", arabic: "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", malayalam: "നമ്മെ മരണപ്പെടുത്തിയ (ഉറക്കിയ) ശേഷം ജീവിപ്പിക്കുകയും, അവങ്കലേക്ക് തന്നെയാണ് മടങ്ങിയെഴുന്നേൽക്കലും ഉള്ള അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },	
+    { title: "ഭക്ഷണം കഴിക്കുന്നതിന് മുൻപ്", arabic: "بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ اللَّهِ", malayalam: "അല്ലാഹുവിന്റെ നാമത്തിൽ, അവന്റെ ബറകത്തിന്മേൽ ഞാൻ ഭക്ഷണം കഴിച്ചു തുടങ്ങുന്നു." },	
+    { title: "ഭക്ഷണം കഴിച്ചതിന് ശേഷം", arabic: "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ", malayalam: "നമുക്ക് ഭക്ഷണവും പാനീയവും നൽകുകയും, നമ്മെ മുസ്ലിങ്ങളാക്കുകയും ചെയ്ത അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },	
+    { title: "വീട്ടിൽ നിന്ന് പുറത്തിറങ്ങുമ്പോൾ", arabic: "بِسْمِ اللَّهِ ، تَوَكَّلْتُ عَلَى اللَّهِ ، وَلا حَوْលَ وَلا قُوَّةَ إِلا بِالعُلَّهِ", malayalam: "അല്ലാഹുവിന്റെ നാമത്തിൽ, ഞാൻ അല്ലാഹുവിൽ ഭരമേൽപ്പിക്കുന്നു. അല്ലാഹുവെക്കൊണ്ടല്ലാതെ യാതൊരു കഴിവോ ശക്തിയോ ഇല്ല." },	
+    { title: "ഉറങ്ങാൻ കിടക്കുമ്പോൾ", arabic: "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا", malayalam: "അല്ലാഹുവേ, നിന്റെ നാമത്തിൽ ഞാൻ മരണപ്പെടുന്നു (ഉറങ്ങുന്നു), ജീവിക്കുകയും ചെയ്യുന്നു." }	
+];	
+	
+function switchPage(page) {	
+    document.querySelectorAll('.app-page').forEach(p => p.classList.remove('active-page'));	
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));	
+    document.getElementById('page-' + page).classList.add('active-page');	
+    if(page === 'home') document.getElementById('nav-home').classList.add('active');	
+    if(page === 'learning' || page === 'dua-list') document.getElementById('nav-learning').classList.add('active');	
+    if(page === 'dua-list') {	
+        document.getElementById('dua-display-area').innerHTML = allDuas.map(d => `	
+            <div class="dua-card">	
+                <span class="dua-header">${d.title}</span>	
+                <div class="dua-arabic-text">${d.arabic}</div>	
+                <div class="dua-malayalam-text">${d.malayalam}</div>	
+            </div>	
+        `).join('');	
+    }	
+}	
+	
+function showModal() { document.getElementById('profile-modal').style.display = 'flex'; }	
+function saveProfile() {	
+    const name = document.getElementById('input-name').value.toUpperCase();	
+    if(!name) return;	
+    localStorage.setItem('current_child', name);	
+    localStorage.setItem(name.toLowerCase() + '_madrassa', document.getElementById('input-madrassa').value);	
+    document.getElementById('profile-modal').style.display = 'none';	
+    updateUI();	
+}	
+	
+function updateUI() {	
+    const child = localStorage.getItem('current_child');	
+    if(!child) { showModal(); return; }	
+    currentChildPrefix = child.toLowerCase() + "_";	
+    document.getElementById('welcome-text').innerText = "ഹലോ, " + child + " 👋";	
+    const madrassa = localStorage.getItem(currentChildPrefix + "madrassa");	
+    document.getElementById('header-madrassa-info').innerText = madrassa || "";	
+    loadTasks();	
+}	
+	
+function handleTaskChange(el) {	
+    localStorage.setItem(currentChildPrefix + el.id, el.checked);	
+    if(el.checked) confetti({ particleCount: 100, spread: 70, origin: { y: 0.8 } });	
+    calculateScore();	
+}	
+	
+function loadTasks() {	
+    document.querySelectorAll('.task-checkbox').forEach(cb => {	
+        cb.checked = localStorage.getItem(currentChildPrefix + cb.id) === 'true';	
+    });	
+    calculateScore();	
+}	
+	
+function calculateScore() {	
+    const count = document.querySelectorAll('.task-checkbox:checked').length;	
+    document.getElementById('score-display').innerHTML = `<i class="fa-solid fa-star"></i> ഇന്നത്തെ മാർക്ക്: ${count * 10} / 100`;	
+}	
+	
+updateUI();	
 </script>	
 </body>	
 </html>
