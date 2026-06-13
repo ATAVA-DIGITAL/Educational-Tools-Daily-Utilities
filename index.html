@@ -79,7 +79,7 @@ width: 100%; padding: 12px; border: 1px solid #CCC; border-radius: 8px; font-siz
 }	
 .input-group input:focus { border-color: var(--primary-gold); }	
 	
-/* Header Style with Full Arabic Text */	
+/* Header Style */	
 .app-header {	
 background: linear-gradient(135deg, #1A252F, #2C3E50);	
 color: white;	
@@ -165,52 +165,44 @@ background-color: var(--success-green); border-color: var(--success-green);
 }	
 .checkbox-wrapper input[type="checkbox"]:checked + .custom-checkbox i { display: block; }	
 	
-/* Daily Quote Card */	
+/* Daily Quote Card Updated */	
 .quote-card {	
 background: #FFFDEE;	
-border: 1px dashed var(--primary-gold);	
-padding: 15px; border-radius: 12px; margin-top: 25px;	
-text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.01);	
+border: 1px solid rgba(212, 175, 55, 0.3);	
+border-left: 5px solid var(--primary-gold);	
+padding: 18px; border-radius: 12px; margin-top: 25px;	
+text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03);	
 }	
-.quote-card h4 { color: var(--primary-gold); font-size: 15px; margin-bottom: 5px; }	
-.quote-card p { font-size: 14px; font-style: italic; color: #555; }	
+.quote-card h4 { color: var(--primary-gold); font-size: 16px; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; }	
+.quote-card p { font-size: 15px; font-weight: 600; color: #34495E; line-height: 1.6; }	
 	
-/* ATAVA Full Branding Billboard with Creator Tag */	
+/* ATAVA Branding Billboard - Optimized No Logo Version */	
 .branding-billboard {	
 background: #1A252F;	
 color: white;	
 border-radius: 15px;	
 margin-top: 25px;	
-padding: 22px 15px;	
+padding: 25px 15px;	
 text-align: center;	
 box-shadow: 0 6px 15px rgba(0,0,0,0.08);	
+border: 1px solid rgba(212, 175, 55, 0.2);	
 }	
 	
-.logo-container {	
-width: 70px;	
-height: 70px;	
-margin: 0 auto 10px auto;	
-border-radius: 50%;	
-border: 2px solid var(--primary-gold);	
-background: #2C3E50;	
-overflow: hidden;	
-display: flex;	
-align-items: center;	
-justify-content: center;	
-}	
-.branding-billboard img {	
-width: 100%;	
-height: 100%;	
-object-fit: cover;	
-}	
-	
-.branding-billboard h3 {	
-font-size: 13px;	
+.branding-billboard h2 {	
+font-size: 18px;	
 color: var(--primary-gold);	
-letter-spacing: 0.5px;	
-margin-bottom: 12px;	
-font-weight: 700;	
+margin-bottom: 5px;	
+letter-spacing: 1px;	
 }	
+
+.branding-billboard h3 {	
+font-size: 11px;	
+color: #95A5A6;	
+letter-spacing: 2px;	
+margin-bottom: 15px;	
+font-weight: 400;	
+}	
+
 .service-tags {	
 display: flex;	
 justify-content: center;	
@@ -229,19 +221,19 @@ color: #E0E0E0;
 /* Creator Section */	
 .creator-section {	
 border-top: 1px solid rgba(255,255,255,0.1);	
-padding-top: 12px;	
+padding-top: 15px;	
 margin-top: 5px;	
 }	
 .creator-title {	
-font-size: 10px;	
+font-size: 9px;	
 color: #95A5A6;	
 text-transform: uppercase;	
 letter-spacing: 1px;	
-margin-bottom: 2px;	
+margin-bottom: 4px;	
 }	
 .creator-name {	
 font-size: 13px;	
-color: var(--primary-gold);	
+color: var(--card-white);	
 font-weight: 700;	
 letter-spacing: 0.5px;	
 }	
@@ -256,6 +248,18 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 .nav-item { display: flex; flex-direction: column; align-items: center; color: var(--text-muted); font-size: 12px; font-weight: bold; gap: 4px; }	
 .nav-item i { font-size: 20px; }	
 .nav-item.active { color: var(--primary-gold); }	
+
+.save-btn {
+    background: var(--primary-gold);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
 </style>	
 </head>	
 <body>	
@@ -274,7 +278,7 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 	
 <div class="app-container">	
 	
-<!-- App Header with Switch Profile Actions -->	
+<!-- App Header -->	
 <header class="app-header">	
 <div class="header-actions">	
 <button class="action-btn" onclick="showModal()"><i class="fa-solid fa-users-gear"></i> കുട്ടിയെ മാറ്റുക</button>	
@@ -289,103 +293,77 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 <h2 class="section-title"><i class="fa-solid fa-circle-check"></i> എന്റെ ഇന്നത്തെ ശീലങ്ങൾ</h2>	
 	
 <div class="task-list">	
-<!-- Task 1 -->	
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-mosque"></i></div>	
 <div class="task-name">ഫർള് നിസ്കാരങ്ങൾ</div>	
 </div>	
 <div class="checkbox-wrapper">	
-<label>	
-<input type="checkbox" class="task-checkbox" id="prayer" onchange="triggerCelebrate(this)">	
-<div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>	
-</label>	
+<label><input type="checkbox" class="task-checkbox" id="prayer" onchange="triggerCelebrate(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label>	
 </div>	
 </div>	
 	
-<!-- Task 2 -->	
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-star-and-crescent" style="color: var(--primary-gold);"></i></div>	
 <div class="task-name">നബി ﷺ യുടെ മേൽ സ്വലാത്ത് ചൊല്ലുക</div>	
 </div>	
 <div class="checkbox-wrapper">	
-<label>	
-<input type="checkbox" class="task-checkbox" id="swalath" onchange="triggerCelebrate(this)">	
-<div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>	
-</label>	
+<label><input type="checkbox" class="task-checkbox" id="swalath" onchange="triggerCelebrate(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label>	
 </div>	
 </div>	
 	
-<!-- Task 3 -->	
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-book-quran"></i></div>	
 <div class="task-name">ഖുർആൻ പാരായണം</div>	
 </div>	
 <div class="checkbox-wrapper">	
-<label>	
-<input type="checkbox" class="task-checkbox" id="quran" onchange="triggerCelebrate(this)">	
-<div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>	
-</label>	
+<label><input type="checkbox" class="task-checkbox" id="quran" onchange="triggerCelebrate(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label>	
 </div>	
 </div>	
 	
-<!-- Task 4 -->	
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-user-graduate"></i></div>	
 <div class="task-name">മദ്രസ ഹോംവർക്കുകൾ</div>	
 </div>	
 <div class="checkbox-wrapper">	
-<label>	
-<input type="checkbox" class="task-checkbox" id="homework" onchange="triggerCelebrate(this)">	
-<div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>	
-</label>	
+<label><input type="checkbox" class="task-checkbox" id="homework" onchange="triggerCelebrate(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label>	
 </div>	
 </div>	
 	
-<!-- Task 5 -->	
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-heart-open" style="color: #E74C3C;"></i></div>	
 <div class="task-name">മറ്റുള്ളവരെ സഹായിക്കൽ</div>	
 </div>	
 <div class="checkbox-wrapper">	
-<label>	
-<input type="checkbox" class="task-checkbox" id="helping_others" onchange="triggerCelebrate(this)">	
-<div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>	
-</label>	
+<label><input type="checkbox" class="task-checkbox" id="helping_others" onchange="triggerCelebrate(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label>	
 </div>	
 </div>	
 	
-<!-- Task 6 -->	
 <div class="task-item">	
 <div class="task-info">	
 <div class="task-icon"><i class="fa-solid fa-heart"></i></div>	
 <div class="task-name">മാതാപിതാക്കളെ സഹായിക്കൽ</div>	
 </div>	
 <div class="checkbox-wrapper">	
-<label>	
-<input type="checkbox" class="task-checkbox" id="parents" onchange="triggerCelebrate(this)">	
-<div class="custom-checkbox"><i class="fa-solid fa-check"></i></div>	
-</label>	
+<label><input type="checkbox" class="task-checkbox" id="parents" onchange="triggerCelebrate(this)"><div class="custom-checkbox"><i class="fa-solid fa-check"></i></div></label>	
 </div>	
 </div>	
 </div>	
 	
-<!-- Daily Quote Card -->	
+<!-- Daily Quote Card Optimized -->	
 <div class="quote-card">	
-<h4>💡 ഇന്നത്തെ വചനം</h4>	
-<p>"വിദ്യ നേടുക എന്നത് ഓരോ മുസ്лиമിന്റെയും നിർബന്ധ കടമയാകുന്നു."</p>	
+<h4><i class="fa-solid fa-lightbulb"></i> ഇന്നത്തെ വചനം</h4>	
+<p>"വിദ്യ നേടുക എന്നത് ഓരോ മുസ്ലിമിന്റെയും നിർബന്ധ കടമയാകുന്നു."</p>	
 </div>	
 	
-<!-- ATAVA Premium Business Billboard & Creator Info -->	
+<!-- ATAVA Branding Billboard - No Logo Space Version -->	
 <div class="branding-billboard">	
-<div class="logo-container">	
-<img src="logo.jpg" alt="ATAVA Logo" onerror="this.src='https://placehold.co/100x100/2c3e50/d4af37?text=ATAVA';">	
-</div>	
-<h3>ATAVA DIGITAL SERVICES & TRADING</h3>	
+<h2>ATAVA</h2>	
+<h3>DIGITAL SERVICES & TRADING</h3>	
 <div class="service-tags">	
 <span class="tag">Data Entry</span>	
 <span class="tag">Typing Works</span>	
@@ -393,7 +371,6 @@ box-shadow: 0 -4px 15px rgba(0,0,0,0.05); border-top-left-radius: 20px; border-t
 <span class="tag">Digital Portals</span>	
 </div>	
 	
-<!-- Creator Branding Tag -->	
 <div class="creator-section">	
 <p class="creator-title">Designed & Developed By</p>	
 <p class="creator-name">ABDUL SALAM AHSANI VAZHAKKAD</p>	
@@ -433,11 +410,7 @@ const madrassa = document.getElementById('input-madrassa').value.trim();
 const place = document.getElementById('input-place').value.trim();	
 	
 if(name === "") { alert("ദയവായി പേര് ടൈപ്പ് ചെയ്യുക!"); return; }	
-	
-// 🌟 പേരുകൾ എപ്പോഴും CAPITAL LETTERS ആക്കി മാറ്റുന്നു	
 name = name.toUpperCase();	
-	
-// 🌟 ക്ലാസ്സ് വെറും 10 ആണെങ്കിൽ അത് "Class 10" രൂപത്തിലാക്കുന്നു	
 if(uClass !== "" && !uClass.toLowerCase().includes('class')) {	
 uClass = "Class " + uClass;	
 }	
@@ -493,4 +466,4 @@ localStorage.setItem(currentChildPrefix + checkbox.id, checkbox.checked);
 updateUI();	
 </script>	
 </body>	
-</html>	
+</html>
