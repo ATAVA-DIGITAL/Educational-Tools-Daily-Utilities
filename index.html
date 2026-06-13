@@ -4,7 +4,7 @@
 <meta charset="UTF-8">	
 <meta name="viewport" content="width=device-width, initial-scale=1.0">	
 <title>മദ്രസ മാസ്റ്റർ - ATAVA</title>	
-<!-- കൂടുതൽ പ്രൊഫഷണൽ ആയ ഗായത്രി ഫോണ്ടും അമീരി ഫോണ്ടും -->
+<!-- പ്രൊഫഷണൽ ലുക്കുള്ള ഗായത്രി, അമീരി ഫോണ്ടുകൾ -->
 <link href="https://fonts.googleapis.com/css2?family=Gayathri:wght@400;700&family=Amiri&display=swap" rel="stylesheet">	
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">	
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>	
@@ -34,11 +34,13 @@ body { background-color: var(--bg-light); color: var(--text-dark); display: flex
 .input-group input { width: 100%; padding: 12px; border: 1px solid #CCC; border-radius: 8px; outline: none; font-size: 16px; }	
 .input-group input:focus { border-color: var(--primary-gold); }	
 
-/* Header */	
+/* Header (Old Super Design with Premium Clean Salam) */	
 .app-header { background: linear-gradient(135deg, #1A252F, #2C3E50); color: white; padding: 35px 20px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; position: relative; text-align: center; }	
 .header-actions { position: absolute; top: 15px; right: 15px; }	
 .action-btn { background: rgba(255, 255, 255, 0.1); color: var(--primary-gold); border: none; padding: 6px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; }	
-.arabic-salam { font-family: 'Amiri', serif; font-size: 24px; color: var(--primary-gold); margin-top: 15px; margin-bottom: 10px; direction: rtl; }	
+
+/* സലാം - ബോർഡർ ഇല്ലാത്ത ക്ലീൻ സ്റ്റൈൽ */	
+.arabic-salam { font-family: 'Amiri', serif; font-size: 24px; color: var(--primary-gold); margin-top: 15px; margin-bottom: 10px; direction: rtl; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }	
 .welcome-msg { font-size: 20px; font-weight: bold; margin-bottom: 8px; }	
 .child-info { font-size: 14px; color: #BDC3C7; background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 20px; display: inline-block; font-weight: bold; }	
 .score-badge { background: linear-gradient(135deg, #FFD700, #D4AF37); color: #1A252F; padding: 6px 15px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-top: 12px; display: inline-flex; align-items: center; gap: 6px; }
@@ -76,12 +78,16 @@ body { background-color: var(--bg-light); color: var(--text-dark); display: flex
 .dua-meaning { font-size: 14px; color: var(--text-muted); line-height: 1.5; font-style: italic; display: block; }
 .back-btn { background: none; border: none; color: var(--primary-gold); font-weight: bold; font-size: 15px; margin-bottom: 15px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
 
-/* ATAVA Branding (One Line Style) */	
-.branding-billboard { background: #1A252F; color: white; border-radius: 15px; padding: 20px 15px; text-align: center; border: 1px solid rgba(212, 175, 55, 0.2); }	
-.branding-billboard h2 { font-size: 18px; color: var(--primary-gold); }	
-.branding-billboard h3 { font-size: 10px; color: #95A5A6; margin-bottom: 12px; }	
-.service-line { font-size: 12px; color: #E0E0E0; margin-bottom: 15px; word-spacing: 3px; opacity: 0.8; }	
-.creator-name { font-size: 13px; font-weight: 700; color: white; letter-spacing: 0.5px; }	
+/* ATAVA Branding (Perfect image_ee78e3.jpg representation) */	
+.branding-billboard { background: #1A252F; color: white; border-radius: 15px; padding: 25px 15px; text-align: center; border: 1px solid rgba(212, 175, 55, 0.2); box-shadow: 0 6px 15px rgba(0,0,0,0.08); }	
+.branding-billboard h2 { font-size: 18px; color: var(--primary-gold); margin-bottom: 5px; letter-spacing: 1px; }	
+.branding-billboard h3 { font-size: 11px; color: #95A5A6; letter-spacing: 2px; margin-bottom: 15px; font-weight: 400; }	
+.service-line { font-size: 11px; color: #E0E0E0; margin-bottom: 15px; word-spacing: 2px; opacity: 0.8; }	
+
+/* ഡെവലപ്പർ സെക്ഷൻ പഴയതുപോലെ രണ്ട് വരിയിൽ */
+.creator-section { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; margin-top: 15px; }	
+.creator-title { font-size: 9px; color: #95A5A6; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }	
+.creator-name { font-size: 13px; color: var(--card-white); font-weight: 700; letter-spacing: 0.5px; }	
 
 .bottom-nav { position: fixed; bottom: 0; width: 100%; max-width: 480px; background: white; height: 70px; display: flex; justify-content: space-around; align-items: center; border-top-left-radius: 20px; border-top-right-radius: 20px; z-index: 10; box-shadow: 0 -4px 15px rgba(0,0,0,0.05); }	
 .nav-item { display: flex; flex-direction: column; align-items: center; color: var(--text-muted); font-size: 12px; font-weight: bold; cursor: pointer; }	
@@ -175,11 +181,14 @@ body { background-color: var(--bg-light); color: var(--text-dark); display: flex
 <div id="page-tasbeeh-page" class="app-page"><main class="content"><button class="back-btn" onclick="switchPage('learning')"><i class="fa-solid fa-arrow-left"></i> തിരികെ</button><h2>തസ്ബീഹ് കൗണ്ടർ</h2><p style="padding:20px 0;">ഉടൻ വരുന്നു!</p></main></div>
 <div id="page-quiz-page" class="app-page"><main class="content"><button class="back-btn" onclick="switchPage('learning')"><i class="fa-solid fa-arrow-left"></i> തിരികെ</button><h2>ഇസ്ലാമിക് ക്വിസ്സ്</h2><p style="padding:20px 0;">ഉടൻ വരുന്നു!</p></main></div>
 
-<!-- ATAVA BRANDING BILLBOARD (Exact matching image_ee78e3.jpg inside one line layout) -->
-<div class="branding-billboard" style="margin: 20px;">	
+<!-- ATAVA BRANDING BILLBOARD (Perfect image_ee78e3.jpg structure matching) -->
+<div class="branding-billboard" style="margin: 0 20px 25px 20px;">	
 <h2>ATAVA</h2><h3>DIGITAL SERVICES & TRADING</h3>	
 <div class="service-line">Data Entry | Typing Works | Poster & Badge Design | Digital Portals</div>	
-<div class="creator-name">DESIGNED & DEVELOPED BY ABDUL SALAM AHSANI VAZHAKKAD</div>	
+<div class="creator-section">
+    <p class="creator-title">DESIGNED & DEVELOPED BY</p>
+    <p class="creator-name">ABDUL SALAM AHSANI VAZHAKKAD</p>
+</div>	
 </div>	
 	
 <nav class="bottom-nav">	
@@ -193,7 +202,7 @@ let currentChildPrefix = "default_";
 
 // ഫുൾ ദുആ ലിസ്റ്റ്
 const prayers = [
-    { t: "1. ഉറക്കത്തിൽ നിന്ന് എഴുന്നേൽക്കുമ്പോൾ", a: "الْحَمْدُ لِلَّهِ الَّذِي أَحْиَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", m: "നമ്മെ മരണപ്പെടുത്തിയ (ഉറക്കിയ) ശേഷം ജീവിപ്പിക്കുകയും, അവങ്കലേക്ക് തന്നെയാണ് മടങ്ങിയെഴുന്നേൽക്കലും ഉള്ള അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
+    { t: "1. ഉറക്കത്തിൽ നിന്ന് എഴുന്നേൽക്കുമ്പോൾ", a: "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", m: "നമ്മെ മരണപ്പെടുത്തിയ (ഉറക്കിയ) ശേഷം ജീവിപ്പിക്കുകയും, അവങ്കലേക്ക് തന്നെയാണ് മടങ്ങിയെഴുന്നേൽക്കലും ഉള്ള അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
     { t: "2. ഭക്ഷണം കഴിക്കുന്നതിന് മുൻപ്", a: "بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ اللَّهِ", m: "അല്ലാഹുവിന്റെ നാമത്തിൽ, അവന്റെ ബറകത്തിന്മേൽ ഞാൻ ഭക്ഷണം കഴിച്ചു തുടങ്ങുന്നു." },
     { t: "3. ഭക്ഷണം കഴിച്ചതിന് ശേഷം", a: "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ", m: "നമുക്ക് ഭക്ഷണവും പാനീയവും നൽകുകയും, നമ്മെ മുസ്ലിങ്ങളാക്കുകയും ചെയ്ത അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
     { t: "4. വീട്ടിൽ നിന്ന് പുറത്തിറങ്ങുമ്പോൾ", a: "بِسْمِ اللَّهِ ، تَوَكَّلْتُ عَلَى اللَّهِ ، وَلا حَوْលَ وَلا قُوَّةَ إِلا بِاللَّهِ", m: "അല്ലാഹുവിന്റെ നാമത്തിൽ, ഞാൻ അല്ലാഹുവിൽ ഭരമേൽപ്പിക്കുന്നു. അല്ലാഹുവെക്കൊണ്ടല്ലാതെ യാതൊരു കഴിവോ ശക്തിയോ ഇല്ല." },
