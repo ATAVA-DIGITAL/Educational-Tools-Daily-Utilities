@@ -34,12 +34,11 @@ body { background-color: var(--bg-light); color: var(--text-dark); display: flex
 .input-group input { width: 100%; padding: 12px; border: 1px solid #CCC; border-radius: 8px; outline: none; font-size: 16px; }	
 .input-group input:focus { border-color: var(--primary-gold); }	
 
-/* Header (Old Super Design with Premium Clean Salam) */	
+/* Header */	
 .app-header { background: linear-gradient(135deg, #1A252F, #2C3E50); color: white; padding: 35px 20px; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; position: relative; text-align: center; }	
 .header-actions { position: absolute; top: 15px; right: 15px; }	
 .action-btn { background: rgba(255, 255, 255, 0.1); color: var(--primary-gold); border: none; padding: 6px 12px; border-radius: 15px; font-size: 12px; font-weight: bold; cursor: pointer; }	
 
-/* സലാം - ബോർഡർ ഇല്ലാത്ത ക്ലീൻ സ്റ്റൈൽ */	
 .arabic-salam { font-family: 'Amiri', serif; font-size: 24px; color: var(--primary-gold); margin-top: 15px; margin-bottom: 10px; direction: rtl; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }	
 .welcome-msg { font-size: 20px; font-weight: bold; margin-bottom: 8px; }	
 .child-info { font-size: 14px; color: #BDC3C7; background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 20px; display: inline-block; font-weight: bold; }	
@@ -78,13 +77,20 @@ body { background-color: var(--bg-light); color: var(--text-dark); display: flex
 .dua-meaning { font-size: 14px; color: var(--text-muted); line-height: 1.5; font-style: italic; display: block; }
 .back-btn { background: none; border: none; color: var(--primary-gold); font-weight: bold; font-size: 15px; margin-bottom: 15px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
 
-/* ATAVA Branding (Perfect image_ee78e3.jpg representation) */	
+/* Tasbeeh UI Styles */
+.tasbeeh-container { background: white; border-radius: 20px; padding: 25px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-top: 10px; }
+.tasbeeh-select { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid #EAECEE; font-size: 16px; font-weight: bold; outline: none; margin-bottom: 20px; color: #2C3E50; }
+.tasbeeh-arabic { font-family: 'Amiri', serif; font-size: 28px; color: var(--primary-gold); min-height: 45px; margin-bottom: 20px; direction: rtl; }
+.counter-display { font-size: 65px; font-weight: bold; color: #1A252F; margin-bottom: 25px; font-family: sans-serif; background: #F8F9FA; display: inline-block; padding: 0 40px; border-radius: 50px; border: 2px dashed #D4AF37; }
+.tap-btn { width: 140px; height: 140px; background: linear-gradient(135deg, #2C3E50, #1A252F); color: white; border: 5px solid #EAECEE; border-radius: 50%; font-size: 20px; font-weight: bold; cursor: pointer; transition: transform 0.1s; box-shadow: 0 8px 20px rgba(0,0,0,0.15); outline: none; margin: 0 auto; display: flex; align-items: center; justify-content: center; }
+.tap-btn:active { transform: scale(0.95); background: linear-gradient(135deg, #1A252F, #111A22); }
+.reset-btn { background: none; border: none; color: #E74C3C; font-weight: bold; font-size: 15px; margin-top: 25px; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; }
+
+/* ATAVA Branding */	
 .branding-billboard { background: #1A252F; color: white; border-radius: 15px; padding: 25px 15px; text-align: center; border: 1px solid rgba(212, 175, 55, 0.2); box-shadow: 0 6px 15px rgba(0,0,0,0.08); }	
 .branding-billboard h2 { font-size: 18px; color: var(--primary-gold); margin-bottom: 5px; letter-spacing: 1px; }	
 .branding-billboard h3 { font-size: 11px; color: #95A5A6; letter-spacing: 2px; margin-bottom: 15px; font-weight: 400; }	
 .service-line { font-size: 11px; color: #E0E0E0; margin-bottom: 15px; word-spacing: 2px; opacity: 0.8; }	
-
-/* ഡെവലപ്പർ സെക്ഷൻ പഴയതുപോലെ രണ്ട് വരിയിൽ */
 .creator-section { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; margin-top: 15px; }	
 .creator-title { font-size: 9px; color: #95A5A6; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }	
 .creator-name { font-size: 13px; color: var(--card-white); font-weight: 700; letter-spacing: 0.5px; }	
@@ -178,10 +184,29 @@ body { background-color: var(--bg-light); color: var(--text-dark); display: flex
 </main>
 </div>
 
-<div id="page-tasbeeh-page" class="app-page"><main class="content"><button class="back-btn" onclick="switchPage('learning')"><i class="fa-solid fa-arrow-left"></i> തിരികെ</button><h2>തസ്ബീഹ് കൗണ്ടർ</h2><p style="padding:20px 0;">ഉടൻ വരുന്നു!</p></main></div>
+<!-- TASBEEH PAGE -->
+<div id="page-tasbeeh-page" class="app-page">
+<main class="content">
+<button class="back-btn" onclick="switchPage('learning')"><i class="fa-solid fa-arrow-left"></i> തിരികെ</button>
+<h2 class="section-title">തസ്ബീഹ് കൗണ്ടർ</h2>
+<div class="tasbeeh-container">
+    <select id="dhikr-select" class="tasbeeh-select" onchange="updateDhikrText()">
+        <option value="subhanallah">1. സുബ്ഹാനല്ലാഹ് (سُبْحَانَ اللَّهِ)</option>
+        <option value="alhamdulillah">2. അൽഹംദുലില്ലാഹ് (الْحَمْدُ لِلَّهِ)</option>
+        <option value="allahuakbar">3. അല്ലാഹു അക്ബർ (اللَّهُ أَكْبَرُ)</option>
+    </select>
+    <div class="tasbeeh-arabic" id="dhikr-arabic-display">سُبْحَانَ اللَّهِ</div>
+    <div class="counter-display" id="tasbeeh-count">0</div>
+    <button class="tap-btn" onclick="incrementTasbeeh()">TAP</button>
+    <br>
+    <button class="reset-btn" onclick="resetTasbeeh()"><i class="fa-solid fa-rotate-right"></i> കൗണ്ട് റീസെറ്റ് ചെയ്യുക</button>
+</div>
+</main>
+</div>
+
 <div id="page-quiz-page" class="app-page"><main class="content"><button class="back-btn" onclick="switchPage('learning')"><i class="fa-solid fa-arrow-left"></i> തിരികെ</button><h2>ഇസ്ലാമിക് ക്വിസ്സ്</h2><p style="padding:20px 0;">ഉടൻ വരുന്നു!</p></main></div>
 
-<!-- ATAVA BRANDING BILLBOARD (Perfect image_ee78e3.jpg structure matching) -->
+<!-- ATAVA BRANDING BILLBOARD -->
 <div class="branding-billboard" style="margin: 0 20px 25px 20px;">	
 <h2>ATAVA</h2><h3>DIGITAL SERVICES & TRADING</h3>	
 <div class="service-line">Data Entry | Typing Works | Poster & Badge Design | Digital Portals</div>	
@@ -199,12 +224,19 @@ body { background-color: var(--bg-light); color: var(--text-dark); display: flex
 	
 <script>	
 let currentChildPrefix = "default_";	
+let tasbeehCounter = 0;
+
+const dhikrArabic = {
+    subhanallah: "سُبْحَانَ اللَّهِ",
+    alhamdulillah: "الْحَمْدُ لِلَّهِ",
+    allahuakbar: "اللَّهُ أَكْبَرُ"
+};
 
 // ഫുൾ ദുആ ലിസ്റ്റ്
 const prayers = [
     { t: "1. ഉറക്കത്തിൽ നിന്ന് എഴുന്നേൽക്കുമ്പോൾ", a: "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ", m: "നമ്മെ മരണപ്പെടുത്തിയ (ഉറക്കിയ) ശേഷം ജീവിപ്പിക്കുകയും, അവങ്കലേക്ക് തന്നെയാണ് മടങ്ങിയെഴുന്നേൽക്കലും ഉള്ള അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
     { t: "2. ഭക്ഷണം കഴിക്കുന്നതിന് മുൻപ്", a: "بِسْمِ اللَّهِ وَعَلَى بَرَكَةِ اللَّهِ", m: "അല്ലാഹുവിന്റെ നാമത്തിൽ, അവന്റെ ബറകത്തിന്മേൽ ഞാൻ ഭക്ഷണം കഴിച്ചു തുടങ്ങുന്നു." },
-    { t: "3. ഭക്ഷണം കഴിച്ചതിന് ശേഷം", a: "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُسْلِمِينَ", m: "നമുക്ക് ഭക്ഷണവും പാനീയവും നൽകുകയും, നമ്മെ മുസ്ലിങ്ങളാക്കുകയും ചെയ്ത അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
+    { t: "3. ഭക്ഷണം കഴിച്ചതിന് ശേഷം", a: "الْحَمْدُ لِلَّهِ الَّذِي أَطْعَمَنَا وَسَقَانَا وَجَعَلَنَا مُសْلِمِينَ", m: "നмуക്ക് ഭക്ഷണവും പാനീയവും നൽകുകയും, നമ്മെ മുസ്ലിങ്ങളാക്കുകയും ചെയ്ത അല്ലാഹുവിനാണ് സർവ്വ സ്തുതിയും." },
     { t: "4. വീട്ടിൽ നിന്ന് പുറത്തിറങ്ങുമ്പോൾ", a: "بِسْمِ اللَّهِ ، تَوَكَّلْتُ عَلَى اللَّهِ ، وَلا حَوْលَ وَلا قُوَّةَ إِلا بِاللَّهِ", m: "അല്ലാഹുവിന്റെ നാമത്തിൽ, ഞാൻ അല്ലാഹുവിൽ ഭരമേൽപ്പിക്കുന്നു. അല്ലാഹുവെക്കൊണ്ടല്ലാതെ യാതൊരു കഴിവോ ശക്തിയോ ഇല്ല." },
     { t: "5. ഉറങ്ങാൻ കിടക്കുമ്പോൾ", a: "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا", m: "അല്ലാഹുവേ, നിന്റെ നാമത്തിൽ ഞാൻ മരണപ്പെടുന്നു (ഉറങ്ങുന്നു), ജീവിക്കുകയും ചെയ്യുന്നു." }
 ];
@@ -235,6 +267,35 @@ function switchPage(p) {
             <div class="dua-card"><span class="dua-title">${m.t}</span><span class="dua-meaning" style="font-style:normal; margin-top:8px; display:block; color:#2C3E50; font-size:15px;">${m.m}</span></div>
         `).join('');
     }
+}
+
+// തസ്ബീഹ് ഫങ്ക്ഷനുകൾ
+function updateDhikrText() {
+    const selected = document.getElementById('dhikr-select').value;
+    document.getElementById('dhikr-arabic-display').innerText = dhikrArabic[selected];
+    resetTasbeeh();
+}
+
+function incrementTasbeeh() {
+    tasbeehCounter++;
+    document.getElementById('tasbeeh-count').innerText = tasbeehCounter;
+    
+    // ഫോണിൽ ചെറിയ വൈബ്രേഷൻ നൽകാൻ
+    if (navigator.vibrate) navigator.vibrate(50);
+    
+    // 33 കൗണ്ട് എത്തിയാൽ ഒരു അലാർട്ട്/സന്തോഷം
+    if (tasbeehCounter === 33) {
+        confetti({ particleCount: 60, spread: 40, origin: { y: 0.7 } });
+        if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+        setTimeout(() => {
+            alert("മാഷാ അല്ലാഹ്! നിങ്ങൾ 33 തവണ പൂർത്തിയാക്കി. അടുത്ത ദിക്റിലേക്ക് മാറാം അല്ലെങ്കിൽ തുടരാം ✨");
+        }, 300);
+    }
+}
+
+function resetTasbeeh() {
+    tasbeehCounter = 0;
+    document.getElementById('tasbeeh-count').innerText = "0";
 }
 
 function showModal() { document.getElementById('profile-modal').style.display = 'flex'; }
